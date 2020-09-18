@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode.Base.DriveTrains;
-//originally for JesusBot
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 

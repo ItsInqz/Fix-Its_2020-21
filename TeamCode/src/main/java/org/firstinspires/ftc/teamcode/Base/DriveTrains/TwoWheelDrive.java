@@ -6,36 +6,18 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TwoWheelDrive {
 
-
+    // Declare Variables
     public DcMotor frontLeftMotor;
     public DcMotor frontRightMotor;
 
 
     public LinearOpMode linearOp = null;
-
     public void setLinearOp(LinearOpMode linearOp) {
         this.linearOp = linearOp;
     }
 
     public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
     public static final double TICKS_PER_ROTATION = 538;
-
-
-    public TwoWheelDrive(DcMotor FL, DcMotor FR) {
-        frontLeftMotor = FL;
-        frontRightMotor = FR;
-
-        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);     //Forward and reverse depends on builder and manufacture
-        frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
-
-        setMotorRunModes(DcMotor.RunMode.STOP_AND_RESET_ENCODER);   //memorize
-        setMotorRunModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER); // MUST HAVE RUN MODE
-
-        frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-    }
-
 
 
     public void setMotorRunModes (DcMotor.RunMode mode) {               //sets the mode/behavior for the motor
