@@ -4,7 +4,7 @@ package org.firstinspires.ftc.teamcode.Base.Controls;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Base.Robot.SchenckBot;
+import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 
 @TeleOp(name = "Schenck Outreach Tele Op", group = "Outreach")
 
@@ -12,9 +12,9 @@ import org.firstinspires.ftc.teamcode.Base.Robot.SchenckBot;
 
 
 
-public class SchenckTeleOp extends OpMode {
+public class FixItTeleOp extends OpMode {
 
-    public SchenckBot Bot = new SchenckBot();
+    public FixItBot Bot = new FixItBot();
 
     public void init()    {
         Bot.initRobot(hardwareMap);
@@ -28,7 +28,6 @@ public class SchenckTeleOp extends OpMode {
 
         controlWindup();
 
-        controlArm();
 
     }
 
@@ -82,15 +81,7 @@ public class SchenckTeleOp extends OpMode {
         }
     }
 
-    public void controlArm() {
-        if (gamepad2.x) {
-            Bot.rightArm();
-        } else if (gamepad2.y) {
-            Bot.leftArm();
-        } else {
-            Bot.armOff();
-        }
-    }
+
 
 
 

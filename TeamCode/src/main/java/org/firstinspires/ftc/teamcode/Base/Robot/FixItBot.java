@@ -6,19 +6,17 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.Base.DriveTrains.OutreachDrive;
 
-public class SchenckBot extends OutreachDrive {
+public class FixItBot extends OutreachDrive {
 
     public HardwareMap hwBot = null;
-    public Servo windup = null;
-    public Servo arm1 = null;
 
-    public DcMotor SchenckLauncher;
+    public Servo fixItServo = null;
 
     public DcMotor launcherLSpinner;
     public DcMotor launcherRSpinner;
 
 
-    public SchenckBot() {
+    public FixItBot() {
 
     }
 
@@ -28,17 +26,12 @@ public class SchenckBot extends OutreachDrive {
 
         hwBot = hwMap;
 
-
-
         frontLeftMotor =  hwBot.dcMotor.get("front_left_motor");
         frontRightMotor = hwBot.dcMotor.get("front_right_motor");
-
-
 
         //direction set
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-
 
         //runmodes
 
@@ -49,9 +42,7 @@ public class SchenckBot extends OutreachDrive {
         frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-
         //launching mechanism
-        //SchenckLauncher =  hwBot.dcMotor.get("schenck_launcher");
 
         launcherRSpinner = hwBot.dcMotor.get("launcher_right_spinner");
         launcherRSpinner.setDirection(DcMotor.Direction.REVERSE);
@@ -61,11 +52,9 @@ public class SchenckBot extends OutreachDrive {
         launcherLSpinner.setDirection(DcMotor.Direction.FORWARD);
         launcherLSpinner.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        windup = hwBot.servo.get("windup_servo");
-        windup.setPosition(0);
+        fixItServo = hwBot.servo.get("fixit_servo");
+        fixItServo.setPosition(0);
 
-        arm1 = hwBot.servo.get("arm1_servo");
-        //arm1.setPosition(0);
 
     }
 
@@ -89,24 +78,21 @@ public class SchenckBot extends OutreachDrive {
 
 
     public void rightWindup () {
-        windup.setPosition(.2);// servo between 0 and 1
-    }
-    public void leftWindup () {
-        windup.setPosition(0.8);
-    }
-    public void WindupOff () {
-        windup.setPosition(0);
+
+        fixItServo.setPosition(.2);            // servo between 0 and 1
     }
 
-    public void rightArm () {
-        arm1.setPosition(.2);
+    public void leftWindup () {
+
+        fixItServo.setPosition(0.8);
     }
-    public void leftArm () {
-        arm1.setPosition(0.2);
+
+    public void WindupOff () {
+
+        fixItServo.setPosition(0);
     }
-    public void armOff () {
-        arm1.setPosition(0);
-    }
+
+
 }
 
 
