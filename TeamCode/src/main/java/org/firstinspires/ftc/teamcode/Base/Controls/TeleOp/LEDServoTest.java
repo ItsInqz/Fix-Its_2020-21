@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "LED Servo Test", group = "Lab")
+@TeleOp(name = "LED Servo Test", group = "LED")
 //@Disabled
 public class LEDServoTest extends OpMode {
     Servo led;

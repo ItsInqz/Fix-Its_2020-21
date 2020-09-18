@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Base.DriveTrains.FourWheelDrive;
 
 
-@TeleOp(name = "Rover Drive", group = "Outreach")
+@TeleOp(name = "Four Wheel Drive TeleOp", group = "FixIt")
 //    @Disabled
 public class FourWheelDriveTeleOp extends OpMode {
 

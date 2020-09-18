@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 
-@TeleOp(name = "Schenck Outreach Tele Op", group = "Outreach")
+@TeleOp(name = "FixIt Tele Op", group = "FixIt")
 
 
 
