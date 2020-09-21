@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.Base.DriveTrains.TwoWheelDrive;
+import org.firstinspires.ftc.teamcode.Base.Drivetrains.TwoWheelDrive;
 
 public class FixItBot extends TwoWheelDrive {
 
@@ -19,8 +19,6 @@ public class FixItBot extends TwoWheelDrive {
     public FixItBot() {
 
     }
-
-
 
     public void initRobot (HardwareMap hwMap) {
 

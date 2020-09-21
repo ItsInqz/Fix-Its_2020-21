@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Base.DriveTrains;
+package org.firstinspires.ftc.teamcode.Base.Drivetrains;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -14,6 +14,9 @@ public class MecanumDrive {
 
     public static final double TICKS_PER_ROTATION = 386.3;  //386.3 is defined from the specs of the motor
 
+    public MecanumDrive(){
+
+    }
 
     public MecanumDrive(DcMotor fl, DcMotor fr, DcMotor rl, DcMotor rr) {
 

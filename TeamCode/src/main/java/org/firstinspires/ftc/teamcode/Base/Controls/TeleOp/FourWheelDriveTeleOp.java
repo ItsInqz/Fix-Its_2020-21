@@ -3,10 +3,10 @@ package org.firstinspires.ftc.teamcode.Base.Controls.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Base.DriveTrains.FourWheelDrive;
+import org.firstinspires.ftc.teamcode.Base.Drivetrains.FourWheelDrive;
 
 
-@TeleOp(name = "Four Wheel Drive TeleOp", group = "FixIt")
+@TeleOp(name = "TeleOp - 4WD", group = "FixIt")
 //    @Disabled
 public class FourWheelDriveTeleOp extends OpMode {
 
