@@ -39,7 +39,7 @@ import org.firstinspires.ftc.robotcore.internal.system.Deadline;
 import java.util.concurrent.TimeUnit;
 
 
-@TeleOp(name="Tester LED")
+@TeleOp(name="Test - LED")
 //@Disabled
 public class LEDTester extends OpMode {
 

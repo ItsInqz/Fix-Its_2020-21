@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp(name = "Spinner Motor Intake Test- both motors", group = "Lab")
+@TeleOp(name = "Test - Spinner Motor", group = "Lab")
 @Disabled
 public class SpinnerTwoMotorTest extends OpMode {
     DcMotor spinnerIntakeL;

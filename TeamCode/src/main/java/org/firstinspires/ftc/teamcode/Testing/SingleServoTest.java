@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "Test Servo", group = "lab")
+@TeleOp(name = "Test - Servo", group = "lab")
 public class SingleServoTest extends OpMode {
 
     Servo testServo;
