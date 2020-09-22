@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.Base.Drivetrains.MecanumDrive;
 
 
-public class LabBot extends MecanumDrive {
+public class AckerBot extends MecanumDrive {
 
     //Robot Hardware Constructors
 
@@ -24,7 +24,7 @@ public class LabBot extends MecanumDrive {
 
     //LabBot Constructor
 
-    public LabBot() {
+    public AckerBot() {
 
     }
 
