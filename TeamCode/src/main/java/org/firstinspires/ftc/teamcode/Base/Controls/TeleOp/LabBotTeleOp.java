@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.Base.Robot.LabBot;
 //@Disabled
 @TeleOp(name = "TeleOp - LabBot")
 
-public class TeleLabBot extends OpMode {
+public class LabBotTeleOp extends OpMode {
 
     // Object Construction
     public ElapsedTime TeleOpTime = new ElapsedTime();

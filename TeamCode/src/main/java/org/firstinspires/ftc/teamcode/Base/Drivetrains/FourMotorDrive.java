@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-public class FourWheelDrive {
+public class FourMotorDrive {
 
 
     public DcMotor frontLeftMotor;
@@ -25,7 +25,7 @@ public class FourWheelDrive {
 
 
 
-    public FourWheelDrive(DcMotor FL, DcMotor FR, DcMotor RL, DcMotor RR) {
+    public FourMotorDrive(DcMotor FL, DcMotor FR, DcMotor RL, DcMotor RR) {
         frontLeftMotor = FL;
         frontRightMotor = FR;
         rearLeftMotor = RL;

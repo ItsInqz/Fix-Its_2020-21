@@ -6,10 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 
-@TeleOp(name = "TeleOp - FixIt", group = "FixIt")
+@TeleOp(name = "TeleOp - 2WD", group = "FixIt")
 
 
-public class FixItTeleOp extends OpMode {
+public class TwoMotorDriveTeleOp extends OpMode {
 
     public FixItBot Bot = new FixItBot();
 

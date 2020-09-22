@@ -3,19 +3,19 @@ package org.firstinspires.ftc.teamcode.Base.Controls.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Base.Drivetrains.FourWheelDrive;
+import org.firstinspires.ftc.teamcode.Base.Drivetrains.FourMotorDrive;
 
 
 @TeleOp(name = "TeleOp - 4WD", group = "FixIt")
 //    @Disabled
-public class FourWheelDriveTeleOp extends OpMode {
+public class FourMotorDriveTeleOp extends OpMode {
 
-    FourWheelDrive myRover;
+    FourMotorDrive myRover;
 
 
     public void init(){
 
-        myRover = new FourWheelDrive(hardwareMap.dcMotor.get("front_left_motor"), hardwareMap.dcMotor.get("front_right_motor"), hardwareMap.dcMotor.get("rear_left_motor"), hardwareMap.dcMotor.get("rear_right_motor"));
+        myRover = new FourMotorDrive(hardwareMap.dcMotor.get("front_left_motor"), hardwareMap.dcMotor.get("front_right_motor"), hardwareMap.dcMotor.get("rear_left_motor"), hardwareMap.dcMotor.get("rear_right_motor"));
 
 
     }
