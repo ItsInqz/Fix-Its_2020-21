@@ -6,26 +6,30 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TwoMotorDrive {
 
-    // Declare Variables
+    // Declare Variables for the Motors
     public DcMotor frontLeftMotor;
     public DcMotor frontRightMotor;
 
-
+    // This is required as part of FIRST Tech Challenge SDK   Memorize
     public LinearOpMode linearOp = null;
     public void setLinearOp(LinearOpMode linearOp) {
         this.linearOp = linearOp;
     }
 
+    // These are motor variables from running with encoders (not power)
     public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
     public static final double TICKS_PER_ROTATION = 538;
 
 
-    public void setMotorRunModes (DcMotor.RunMode mode) {               //sets the mode/behavior for the motor
+    // Reusuable Method to Set the Motor Behavior or Run Modes from the Robot Class
+    public void setMotorRunModes (DcMotor.RunMode mode) {
 
         frontLeftMotor.setMode(mode);
         frontRightMotor.setMode(mode);
 
     }
+
+    // Reusuable Method to Stop Moving
 
     public void stopMotors () {
         frontLeftMotor.setPower(0);
@@ -33,6 +37,7 @@ public class TwoMotorDrive {
 
     }
 
+    // Reusuable Method to Drive Forward
 
     public void driveForward (double power) {
         double ABSpower = Math.abs(power);
@@ -43,6 +48,8 @@ public class TwoMotorDrive {
 
     }
 
+    // Reusuable Method to Drive Backwards
+
     public void driveBackward (double power) {
         double ABSpower = Math.abs(power);
 
@@ -51,12 +58,16 @@ public class TwoMotorDrive {
 
     }
 
+    // Reusuable Method to Turn Left (aka Rotate)
+
     public void rotateLeft (double power) {
         double ABSpower = Math.abs(power);
 
         frontLeftMotor.setPower(-ABSpower);
         frontRightMotor.setPower(ABSpower);
     }
+
+    // Reusuable Method to Turn Right (aka Rotate)
 
     public void rotateRight (double power) {
         double ABSpower = Math.abs(power);
@@ -68,6 +79,7 @@ public class TwoMotorDrive {
 
 
     //******Drive with Encoder Methods********
+
     public void driveForward( double speed, double rotations) {
 
         double ticks = rotations * TICKS_PER_ROTATION;
