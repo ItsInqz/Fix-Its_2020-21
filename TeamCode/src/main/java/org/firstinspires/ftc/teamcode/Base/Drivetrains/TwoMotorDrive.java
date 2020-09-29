@@ -17,8 +17,8 @@ public class TwoMotorDrive {
     }
 
     // These are motor variables from running with encoders (not power)
-    public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
-    public static final double TICKS_PER_ROTATION = 538;
+   // public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
+   // public static final double TICKS_PER_ROTATION = 538;
 
 
     // Reusuable Method to Set the Motor Behavior or Run Modes from the Robot Class
@@ -79,7 +79,7 @@ public class TwoMotorDrive {
 
 
     //******Drive with Encoder Methods********
-
+    /*
     public void driveForward( double speed, double rotations) {
 
         double ticks = rotations * TICKS_PER_ROTATION;
@@ -128,7 +128,7 @@ public class TwoMotorDrive {
         stopMotors();
     }
 
-
+    */
 
 }
 
