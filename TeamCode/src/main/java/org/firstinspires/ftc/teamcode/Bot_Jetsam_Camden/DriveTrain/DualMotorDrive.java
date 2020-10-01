@@ -29,13 +29,13 @@ public class DualMotorDrive {
     }
     //right command
     public void turnRight(double power){
-        frontLeftMotor.setPower(-power);
-        frontRightMotor.setPower(0);
+        frontLeftMotor.setPower(power);
+        frontRightMotor.setPower(-power);
     }
     //reverse command
     public void driveReverse(double power){
         frontRightMotor.setPower(-power);
-        frontRightMotor.setPower(-power);
+        frontLeftMotor.setPower(-power);
     }
-}   //hi
+}
 
