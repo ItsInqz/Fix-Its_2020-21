@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Carmen_Julia.Drivetrains;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TwoMotorDrive {
@@ -11,9 +12,38 @@ public class TwoMotorDrive {
         rearRightMotor.setPower(0);
         rearLeftMotor.setPower(0);
     }
+    public LinearOpMode linearOp = null;
+    public void setLinearOp(LinearOpMode linearOp) {
+        this.linearOp = linearOp;
+    }
 
     public void driveForward (double power){
-        rearRightMotor.setPower(power);
-        rearLeftMotor.setPower(power);
+        double ABSpower = Math.abs(power);
+
+        rearRightMotor.setPower(ABSpower);
+        rearLeftMotor.setPower(ABSpower);
     }
+    public void driveBackward (double power) {
+        double ABSpower = Math.abs(power);
+
+        rearRightMotor.setPower(-ABSpower);
+        rearRightMotor.setPower(-ABSpower);
+
+        }
+        public void rotateLeft (double power) {
+            double ABSpower = Math.abs(power);
+
+            rearRightMotor.setPower(-ABSpower);
+            rearLeftMotor.setPower(ABSpower);
+        }
+
+        // Reusuable Method to Turn Right (aka Rotate)
+
+        public void rotateRight (double power) {
+            double ABSpower = Math.abs(power);
+
+            rearRightMotor.setPower(ABSpower);
+            rearLeftMotor.setPower(-ABSpower);
+
+        }
 }
