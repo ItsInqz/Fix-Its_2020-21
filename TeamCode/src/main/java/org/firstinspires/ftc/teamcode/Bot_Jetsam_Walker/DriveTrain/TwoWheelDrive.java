@@ -6,12 +6,13 @@ public class TwoWheelDrive {
     public DcMotor backLeftMotor;
     public DcMotor backRightMotor;
 
-    public void stopMotors () {
+    public void stopMotors() {
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
     }
-        public void moveMotors (double power) {
-            backLeftMotor.setPower(power);
-            backRightMotor.setPower(power);
-        }
+
+    public void moveMotors(double power) {
+        backLeftMotor.setPower(power);
+        backRightMotor.setPower(power);
+    }
 }
