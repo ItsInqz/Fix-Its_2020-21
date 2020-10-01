@@ -1,5 +1,4 @@
-package org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.DriveTrain;
-
+package org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.DriveTrain.;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class DualMotorDrive {
@@ -33,9 +32,18 @@ public class DualMotorDrive {
         frontRightMotor.setPower(0);
     }
     //reverse command
-    public void driveReverse(double power){
+    public void driveReverse (double power) {
         frontRightMotor.setPower(-power);
+        frontLeftMotor.setPower(-power);
+    }
+    //reverse right command
+    public void driveReverse (double power) {
+        frontRightMotor.setPower(-power+(-power/2));
+        frontLeftMotor.setPower(-power);
+    }
+    //reverse left command
+    public void driveReverse (double power) {
         frontRightMotor.setPower(-power);
+        frontRightMotor.setPower(-power+(-power/2));
     }
 }   //hi
-

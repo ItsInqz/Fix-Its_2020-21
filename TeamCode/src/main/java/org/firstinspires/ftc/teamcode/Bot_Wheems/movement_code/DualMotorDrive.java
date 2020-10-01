@@ -1,30 +1,37 @@
-
 package org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class DualMotorDrive {
-
+public class TwoMotorDrive2 {
     //values//
-    public DcMotor Left;
-    public DcMotor Right;
 
+    public DcMotor BackLeftMotor;
+    public DcMotor BackRightMotor;
 
+    //linear op//
+
+    public LinearOpMode LinearOp = null;
+    public void setLinearOp(LinearOpMode linearOp) {
+        this.LinearOp = linearOp;
+    }
     //commands//
 
     //stop//
-    public void stop () {
-        Left.setPower(0);
-        Right.setPower(0);}
-    //slow forward//
+    public void stop (double power) {
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(0);
+        BackRightMotor.setPower(0);}
+    //slow //
     public void driveForwardslow (double power){
-        Left.setPower(power/2);
-        Right.setPower(power/2); }
+        BackLeftMotor.setPower(power/2);
+        BackRightMotor.setPower(power/2); }
     //forward//
     public void driveForward (double power){
         Left.setPower(power);
         Right.setPower(power); }
-    //fast forward//
+    //fast //
     public void driveForwardfast (double power){
         Left.setPower(power*2);
         Right.setPower(power*2); }
