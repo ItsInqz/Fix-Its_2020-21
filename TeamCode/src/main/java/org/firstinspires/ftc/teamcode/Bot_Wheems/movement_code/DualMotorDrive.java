@@ -1,5 +1,5 @@
 
-package org.firstinspires.ftc.teamcode.Bot_Jetsam.movement_code;
+package org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -45,15 +45,15 @@ public class DualMotorDrive {
         Left.setPower(0);
         Right.setPower(-power); }
     //reverse//
-    public void driveReverse (double power) {
-        Left.setPower(-power);
-        Right.setPower(-power); }
+
     //reverse right command//
-    public void driveReverse (double power) {
+    public void driveReverseRight (double power) {
         Left.setPower(-power);
-        Right.setPower(-power+(-power/2)); }
+        Right.setPower((-power+(-power/2)));
+    }
     //reverse left command//
-    public void driveReverse (double power) {
-        Left.setPower(-power+(-power/2));
-        Right.setPower(-power); }
+    public void driveReverseLeft (double power) {
+        Left.setPower((-power+(-power/2)));
+        Right.setPower(-power);
+    }
 }
