@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.Robot.Jetsam_Bot_Camden;
 
 //@TeleOp(name = "Jetsam:Camden:FirstDrive")
-public class TeleOp     extends OpMode  {
+public class TeleOp     extends OpMode {
 
     public Jetsam_Bot_Camden Bot = new Jetsam_Bot_Camden();
 
@@ -29,6 +29,22 @@ public class TeleOp     extends OpMode  {
         if (gamepad1.left_stick_y > .1) {
 
             Bot.driveForward(gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_y > -.1) {
+
+            Bot.driveBackward(gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_x > .1) {
+
+            Bot.turnRight(gamepad1.left_stick_x);
+        }
+        else if (gamepad1.left_stick_x > -.1) {
+
+            Bot.turnLeft(gamepad1.left_stick_x);
+        }
+        else {
+
+            Bot.stopMotors();
         }
     }
 }
