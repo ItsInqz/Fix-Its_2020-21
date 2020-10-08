@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class TwoMotorDrive2 {
+public class TwoMotorDriveWheems {
     //values//
 
         public DcMotor BackLeftMotor;  //backLeftMotor
@@ -16,6 +16,13 @@ public class TwoMotorDrive2 {
             this.LinearOp = linearOp;
         }
     //commands//
+    //turn//
+        public void stopMotors () {
+
+
+            BackLeftMotor.setPower(0);
+            BackRightMotor.setPower(0);
+    }
         //mode//
         public void setMotorRunModes (DcMotor.RunMode mode) {
             BackLeftMotor.setMode(mode);
@@ -39,22 +46,18 @@ public class TwoMotorDrive2 {
         }
         //right//
         //spin//
-        public void spinright (double power) {
+        public void turnleft (double power) {
             double ABSpower = Math.abs(power);
 
-            BackLeftMotor.setPower(-ABSpower);
-            BackRightMotor.setPower(0);
+            BackLeftMotor.setPower(ABSpower);
+            BackRightMotor.setPower(-ABSpower);
         }
         //turn//
-        public void spinright (double power) {
+        public void turnright (double power) {
             double ABSpower = Math.abs(power);
 
-            BackLeftMotor.setPower(-ABSpower);
-            BackRightMotor.setPower(0);
+            BackLeftMotor.setPower(ABSpower);
+            BackRightMotor.setPower(-ABSpower);
         }
-
-
-
-
 
 }

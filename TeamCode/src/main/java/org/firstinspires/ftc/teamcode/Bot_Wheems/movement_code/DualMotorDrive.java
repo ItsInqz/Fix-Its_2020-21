@@ -25,42 +25,60 @@ public class TwoMotorDrive2 {
         BackRightMotor.setPower(0);}
     //slow //
     public void driveForwardslow (double power){
-        BackLeftMotor.setPower(power/2);
-        BackRightMotor.setPower(power/2); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(ABSpower/2);
+        BackRightMotor.setPower(ABSpower/2); }
     //forward//
     public void driveForward (double power){
-        Left.setPower(power);
-        Right.setPower(power); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(ABSpower);
+        BackRightMotor.setPower(ABSpower); }
     //fast //
     public void driveForwardfast (double power){
-        Left.setPower(power*2);
-        Right.setPower(power*2); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(ABSpower*2);
+        BackRightMotor.setPower(ABSpower*2); }
     //spin left//
     public void spinLeft (double power){
-        Left.setPower(-power);
-        Right.setPower(0); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(-ABSpower);
+        BackRightMotor.setPower(0); }
     //turn right//
     public void turnRight(double power){
-        Left.setPower(power);
-        Right.setPower(power+(power/2)); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(ABSpower);
+        BackRightMotor.setPower(ABSpower+(ABSpower/2)); }
     //turn left//
     public void turnLeft (double power){
-        Left.setPower(power+(power/2));
-        Right.setPower(power); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(ABSpower+(ABSpower/2));
+        BackRightMotor.setPower(ABSpower); }
     //spin right//
     public void spinright (double power){
-        Left.setPower(0);
-        Right.setPower(-power); }
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(0);
+        BackRightMotor.setPower(-ABSpower); }
     //reverse//
 
     //reverse right command//
     public void driveReverseRight (double power) {
-        Left.setPower(-power);
-        Right.setPower((-power+(-power/2)));
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower(-ABSpower);
+        BackRightMotor.setPower((-ABSpower+(-ABSpower/2)));
     }
     //reverse left command//
     public void driveReverseLeft (double power) {
-        Left.setPower((-power+(-power/2)));
-        Right.setPower(-power);
+        double ABSpower = Math.abs(power);
+
+        BackLeftMotor.setPower((-ABSpower+(-ABSpower/2)));
+        BackRightMotor.setPower(-ABSpower);
     }
 }
