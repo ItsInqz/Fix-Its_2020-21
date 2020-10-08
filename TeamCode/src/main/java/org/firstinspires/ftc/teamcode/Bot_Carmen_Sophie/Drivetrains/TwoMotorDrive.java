@@ -14,7 +14,8 @@ public class TwoMotorDrive {
     public LinearOpMode linearOp = null;
 
     public void setLinearOp(LinearOpMode linearOp) {
-                this.linearOp =linearOp;}
+                this.linearOp =linearOp;
+    }
 
     //methods
 
@@ -30,10 +31,10 @@ public class TwoMotorDrive {
 
 
     public void driveForward (double power) {
-        double ABSpower=Math.abs(power)
+        double ABSpower=Math.abs(power);
 
         rearLeftMotor. setPower (ABSpower);
-        rearRightMotor. setPower (ABSpower)
+        rearRightMotor. setPower (ABSpower);
     }
 
     public void drivebackward (double power) {
