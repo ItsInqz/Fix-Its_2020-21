@@ -7,14 +7,21 @@ public class TwoMotorDrive {
     public DcMotor rearRightMotor;
     public DcMotor rearLeftMotor;
 
+
+    public LinearOpMode linearOp = null;
+    public void setLinearOp(LinearOpMode linearOp) {
+        this.linearOp = linearOp;
+    }
+
+    public void setMotorRunModes (DcMotor.RunMode mode){
+        rearLeftMotor.setMode(mode);
+        rearRightMotor.setMode(mode);
+    }
+
     //Stop Motor with a decimal of zero
     public void stopMotors (){
         rearRightMotor.setPower(0);
         rearLeftMotor.setPower(0);
-    }
-    public LinearOpMode linearOp = null;
-    public void setLinearOp(LinearOpMode linearOp) {
-        this.linearOp = linearOp;
     }
 
     public void driveForward (double power){
@@ -29,21 +36,21 @@ public class TwoMotorDrive {
         rearRightMotor.setPower(-ABSpower);
         rearRightMotor.setPower(-ABSpower);
 
-        }
-        public void rotateLeft (double power) {
-            double ABSpower = Math.abs(power);
+    }
+    public void rotateLeft (double power) {
+        double ABSpower = Math.abs(power);
 
-            rearRightMotor.setPower(-ABSpower);
-            rearLeftMotor.setPower(ABSpower);
-        }
+        rearRightMotor.setPower(-ABSpower);
+        rearLeftMotor.setPower(ABSpower);
+    }
 
-        // Reusuable Method to Turn Right (aka Rotate)
+    // Reusuable Method to Turn Right (aka Rotate)
 
-        public void rotateRight (double power) {
-            double ABSpower = Math.abs(power);
+    public void rotateRight (double power) {
+        double ABSpower = Math.abs(power);
 
-            rearRightMotor.setPower(ABSpower);
-            rearLeftMotor.setPower(-ABSpower);
+        rearRightMotor.setPower(ABSpower);
+        rearLeftMotor.setPower(-ABSpower);
 
-        }
+    }
 }
