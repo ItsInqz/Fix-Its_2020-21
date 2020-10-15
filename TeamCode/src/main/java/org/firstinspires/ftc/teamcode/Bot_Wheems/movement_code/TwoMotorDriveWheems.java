@@ -49,8 +49,8 @@ public class TwoMotorDriveWheems {
         public void turnleft (double power) {
             double ABSpower = Math.abs(power);
 
-            BackLeftMotor.setPower(ABSpower);
-            BackRightMotor.setPower(-ABSpower);
+            BackLeftMotor.setPower(-ABSpower);
+            BackRightMotor.setPower(ABSpower);
         }
         //turn//
         public void turnright (double power) {
