@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TwoMotorDrive {
+
     public DcMotor rearRightMotor;
     public DcMotor rearLeftMotor;
 
@@ -14,12 +15,14 @@ public class TwoMotorDrive {
     }
 
     public void setMotorRunModes (DcMotor.RunMode mode){
+
         rearLeftMotor.setMode(mode);
         rearRightMotor.setMode(mode);
     }
 
     //Stop Motor with a decimal of zero
-    public void stopMotors (){
+    public void stopMotors ()   {
+
         rearRightMotor.setPower(0);
         rearLeftMotor.setPower(0);
     }
@@ -30,11 +33,12 @@ public class TwoMotorDrive {
         rearRightMotor.setPower(ABSpower);
         rearLeftMotor.setPower(ABSpower);
     }
+
     public void driveBackward (double power) {
         double ABSpower = Math.abs(power);
 
         rearRightMotor.setPower(-ABSpower);
-        rearRightMotor.setPower(-ABSpower);
+        rearLeftMotor.setPower(-ABSpower);
 
     }
     public void rotateLeft (double power) {
