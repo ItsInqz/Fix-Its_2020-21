@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.DriveTrain.DualMotorDrive1;
 import org.firstinspires.ftc.teamcode.Bot_Kilowatt.DriveTrain.TwoMotorDrive;
-import org.firstinspires.ftc.teamcode.Bot_Kilowatt.Robot.*;
 
 public class Kilowatt_Bot extends TwoMotorDrive {
 
