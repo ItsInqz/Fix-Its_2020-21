@@ -38,14 +38,13 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
         } else if (gamepad1.left_stick_x < -.1) {
 
-
             Bot.turnright(gamepad1.left_stick_x);
 
-        }   else {
+        } else {
 
             Bot.stopMotors();
         }
-        }
+    }
 
 
 
