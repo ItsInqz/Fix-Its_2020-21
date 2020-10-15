@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class TwoMotorDrive2 {
+public class DualMotorDrive {
     //values//
 
     public DcMotor BackLeftMotor;
