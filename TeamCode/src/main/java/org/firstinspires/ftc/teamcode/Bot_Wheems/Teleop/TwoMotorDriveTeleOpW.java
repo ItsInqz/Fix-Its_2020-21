@@ -19,7 +19,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
     public void loop () {
 
         drive();
-
+        arm();
     }
 
     public void drive() {
@@ -44,6 +44,15 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
             Bot.stopMotors();
         }
+    }
+
+    public void arm()  {
+        if (gamepad1.dpad_up ) {
+
+            //Bot.armStandard(gamepad1.dpad_up);
+
+        }
+
     }
 
 

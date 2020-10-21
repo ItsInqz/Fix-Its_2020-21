@@ -3,7 +3,9 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class TwoMotorDriveWheems {
+import org.firstinspires.ftc.teamcode.Bot_Wheems.Servos.WheemsServos;
+
+public class TwoMotorDriveWheems extends WheemsServos {
     //values//
 
         public DcMotor BackLeftMotor;  //backLeftMotor
@@ -22,7 +24,7 @@ public class TwoMotorDriveWheems {
 
             BackLeftMotor.setPower(0);
             BackRightMotor.setPower(0);
-    }
+        }
         //mode//
         public void setMotorRunModes (DcMotor.RunMode mode) {
             BackLeftMotor.setMode(mode);

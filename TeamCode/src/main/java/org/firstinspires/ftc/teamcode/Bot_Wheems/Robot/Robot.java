@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.Robot;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code.TwoMotorDriveWheems;
 
@@ -10,10 +11,12 @@ public class Robot extends TwoMotorDriveWheems {
     //hardware//
     public HardwareMap Wbot = null;
 
+
     //physical contructor
     public Robot() {
 
     }
+
     //custom robot
 
     public void initWbot (HardwareMap WMap) {
@@ -33,6 +36,14 @@ public class Robot extends TwoMotorDriveWheems {
         //Define brake
         BackLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         BackRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+
+        //Servos
+        mainServo = Wbot.get(Servo.class, "main_servo");
+        mainServo.setDirection(Servo.Direction.FORWARD);
+
+        secondaryServo = Wbot.get(Servo.class, "main_servo");
+        secondaryServo.setDirection(Servo.Direction.FORWARD);
 
     }
 
