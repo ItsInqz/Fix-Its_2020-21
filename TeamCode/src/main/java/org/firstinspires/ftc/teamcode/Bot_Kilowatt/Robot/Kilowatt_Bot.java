@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Kilowatt_Bot;
+package org.firstinspires.ftc.teamcode.Bot_Kilowatt.Robot;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -12,7 +12,7 @@ public class Kilowatt_Bot extends TwoMotorDrive {
     //hardware variable
     public HardwareMap hwBot = null;
 
-    public Kilowatt_Bot(){
+    public Kilowatt_Bot (){
 
     }
 

@@ -4,9 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.Robot.Jetsam_Bot_Camden;
-import org.firstinspires.ftc.teamcode.Kilowatt_Bot.Kilowatt_Bot;
+import org.firstinspires.ftc.teamcode.Bot_Kilowatt.Control.*;
+import org.firstinspires.ftc.teamcode.Bot_Kilowatt.Robot.Kilowatt_Bot;
 
-@TeleOp(name = "Kilowatt_First_Drive")
+@TeleOp(name = "Kilowatt_Is_Best")
 public class TelOp extends OpMode {
 
     public Kilowatt_Bot Bot = new Kilowatt_Bot();
@@ -47,13 +48,13 @@ public class TelOp extends OpMode {
 
             Bot.driveBackward(speedMultiply * gamepad1.left_stick_y);
         }
-        else if (gamepad1.left_stick_x > .1) {
+        else if (gamepad1.right_stick_x > .1) {
 
-            Bot.turnRight(speedMultiply * gamepad1.left_stick_x);
+            Bot.turnRight(speedMultiply * gamepad1.right_stick_x);
         }
-        else if (gamepad1.left_stick_x < -.1) {
+        else if (gamepad1.right_stick_x < -.1) {
 
-            Bot.turnLeft(speedMultiply * gamepad1.left_stick_x);
+            Bot.turnLeft(speedMultiply * gamepad1.right_stick_x);
         }
         else {
 
