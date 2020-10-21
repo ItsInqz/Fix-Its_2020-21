@@ -11,21 +11,18 @@ public class WheemsServos {
 
     //methods or controls
         // main
-    public void armStandard () {
+    public void armStandard(boolean dpad_up) {
         mainServo.setPosition(.40);
     }
-    public void armDown () {
+    public void armDown (boolean dpad_down) {
         mainServo.setPosition(.05);
     }
 
     //secondary
-    public void handOpen () {
+    public void handOpen (boolean dpad_right) {
         secondaryServo.setPosition(.40);
     }
-    public void handCloseSmall () {
-        secondaryServo.setPosition(.05);
-    }
-    public void handCloseLarge () {
+    public void handClose (boolean dpad_left) {
         secondaryServo.setPosition(.10);
     }
 

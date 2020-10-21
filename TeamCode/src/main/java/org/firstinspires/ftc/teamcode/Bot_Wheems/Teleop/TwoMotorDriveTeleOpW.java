@@ -11,12 +11,12 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
     public Robot Bot = new Robot();
 
-    public void init(){
+    public void init() {
 
         Bot.initWbot(hardwareMap);
     }
 
-    public void loop () {
+    public void loop() {
 
         drive();
         arm();
@@ -46,18 +46,26 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         }
     }
 
-    public void arm()  {
-        if (gamepad1.dpad_up ) {
+    public void arm() {
+        if (gamepad1.dpad_up) {
 
-            //Bot.armStandard(gamepad1.dpad_up);
+            Bot.armStandard(gamepad1.dpad_up);
+
+        } else if (gamepad1.dpad_down) {
+
+            Bot.armDown(gamepad1.dpad_down);
+
+        } else if (gamepad1.dpad_right) {
+
+            Bot.handOpen(gamepad1.dpad_right);
+
+        } else if (gamepad1.dpad_left) {
+
+            Bot.handClose(gamepad1.dpad_left);
 
         }
-
     }
 
 
-
-
-
-
 }
+
