@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Base.Controls.TeleOp;
 
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -11,6 +12,7 @@ import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 //@Disabled
 public class FixItTeleOp extends OpMode {
 
+
     // Construct the Physical Bot based on the Robot Class
     public FixItBot Bot = new FixItBot();
 
@@ -20,6 +22,7 @@ public class FixItTeleOp extends OpMode {
     public void init()    {
 
         Bot.initRobot(hardwareMap);
+        Bot.lowerFlag();
     }
 
     // TeleOp Loop Method.  This start AFTER clicking the Play Button on the Driver Station Phone
@@ -28,6 +31,7 @@ public class FixItTeleOp extends OpMode {
 
         drive();
         flagControl();
+        ledControl();
 
     }
 
@@ -83,12 +87,31 @@ public class FixItTeleOp extends OpMode {
         if (gamepad1.a) {
             Bot.raiseFlag();
         }
-        else {
+        else if (gamepad1.b)  {
             Bot.lowerFlag();
         }
 
     }
 
+    public void ledControl () {
+
+        if (gamepad1.left_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
+        } else if (gamepad1.right_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
+        }
+    }
+
+//SHORT_RED
+//SHORT_BLUE
+//SHORT_WHITE
+
+//COLOR_WAVES_LAVA_PALETTE
+//COLOR_WAVES_OCEAN_PALETTE
+
+//STROBE_RED
+//STROBE_BLUE
+//STROBE_WHITE
 
 
 
@@ -96,4 +119,4 @@ public class FixItTeleOp extends OpMode {
 
 
 
-}
+    }

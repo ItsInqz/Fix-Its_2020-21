@@ -61,6 +61,7 @@ public class FixItBot extends TwoMotorDrive {
 
         //Define & Initialize LEDTester Lights
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
+
         ledPattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
         ledLights.setPattern(ledPattern);
 
@@ -106,6 +107,11 @@ public class FixItBot extends TwoMotorDrive {
     public void closeBucket() {
 
         bucket.setPosition(0.1);
+
+    }
+
+    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
+                ledLights.setPattern(patternName);
 
     }
 }
