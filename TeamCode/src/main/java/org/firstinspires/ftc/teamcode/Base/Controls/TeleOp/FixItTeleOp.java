@@ -27,38 +27,17 @@ public class FixItTeleOp extends OpMode {
     public void loop () {
 
         drive();
+        flagControl();
 
     }
+
+
 
 
 
     // The custom methods to control the Robot duing TeleOp
 
     public void drive() {
-
-        if (gamepad1.left_stick_y > .1) {
-
-           Bot.driveForward(gamepad1.left_stick_y);
-
-        } else if (gamepad1.left_stick_y < -.1) {
-
-            Bot.driveBackward(gamepad1.left_stick_y);
-
-        } else if (gamepad1.left_stick_x > .1) {
-
-            Bot.rotateLeft(gamepad1.left_stick_x);
-
-        } else if (gamepad1.left_stick_x < -.1) {
-
-            Bot.rotateRight(gamepad1.left_stick_x);
-
-        } else {
-
-            Bot.stopMotors();
-        }
-    }
-
-    public void drive2() {
         if (gamepad1.dpad_up) {
 
             if (gamepad1.left_stick_y > .1) {
@@ -95,6 +74,21 @@ public class FixItTeleOp extends OpMode {
             }
         }
     }
+
+
+    //Methods to control the flag
+
+    public void flagControl () {
+
+        if (gamepad1.a) {
+            Bot.raiseFlag();
+        }
+        else {
+            Bot.lowerFlag();
+        }
+
+    }
+
 
 
 
