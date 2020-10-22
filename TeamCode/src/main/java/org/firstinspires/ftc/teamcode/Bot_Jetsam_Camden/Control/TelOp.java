@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.Control;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -20,6 +21,7 @@ public class TelOp extends OpMode {
 
     public void loop()  {
 
+        flagControl();
         drive();
         slowDrive();
     }
@@ -60,4 +62,35 @@ public class TelOp extends OpMode {
             Bot.stopMotors();
         }
     }
+
+    public void flagControl(){
+
+        if (gamepad1.right_bumper) {
+            Bot.raiseFlag();
+        }
+        if (gamepad1.left_bumper) {
+            Bot.lowerFlag();
+        }
+
+
+
+
+    }
+
+    public void ledControl(){
+
+        if (gamepad1.a){
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.CONFETTI);
+        }
+        else if (gamepad1.b){
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.STROBE_GOLD);
+        }
+
+
+    }
+
+
+
+
+
 }
