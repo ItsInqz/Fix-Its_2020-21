@@ -47,19 +47,19 @@ public class TwoMotorDriveTeleOpW extends OpMode {
     }
 
     public void arm() {
-        if (gamepad1.dpad_up) {
+        if (gamepad1.dpad_up = true) {
 
             Bot.armStandard(gamepad1.dpad_up);
 
-        } else if (gamepad1.dpad_down) {
+        } else if (gamepad1.dpad_down = true) {
 
             Bot.armDown(gamepad1.dpad_down);
 
-        } else if (gamepad1.dpad_right) {
+        } else if (gamepad1.dpad_right= true) {
 
             Bot.handOpen(gamepad1.dpad_right);
 
-        } else if (gamepad1.dpad_left) {
+        } else if (gamepad1.dpad_left= true) {
 
             Bot.handClose(gamepad1.dpad_left);
 
