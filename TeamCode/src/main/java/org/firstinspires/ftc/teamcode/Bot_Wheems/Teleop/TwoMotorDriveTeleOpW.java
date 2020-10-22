@@ -90,7 +90,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         if(gamepad1.left_trigger > 0.1) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_RAINBOW_PALETTE);
         }
-        if(gamepad1.right_trigger > 0.1) {
+        if(gamepad1.right_trigger > 0.1)  {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
         }
     }
