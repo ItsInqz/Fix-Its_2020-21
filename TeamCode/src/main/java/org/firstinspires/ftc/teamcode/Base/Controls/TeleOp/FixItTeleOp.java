@@ -12,6 +12,8 @@ import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 //@Disabled
 public class FixItTeleOp extends OpMode {
 
+    //TeleOp Variables
+    public double speedMultiply = 1;
 
     // Construct the Physical Bot based on the Robot Class
     public FixItBot Bot = new FixItBot();
@@ -32,55 +34,40 @@ public class FixItTeleOp extends OpMode {
         drive();
         flagControl();
         ledControl();
+        speedControl();
 
     }
 
 
 
+    // The control methods for driving the  Robot during TeleOp
 
+    public void drive(){
 
-    // The custom methods to control the Robot duing TeleOp
+        if (gamepad1.left_stick_y > .1) {
 
-    public void drive() {
-        if (gamepad1.dpad_up) {
+            Bot.driveForward( speedMultiply * gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_y < -.1) {
 
-            if (gamepad1.left_stick_y > .1) {
+            Bot.driveBackward(speedMultiply * gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_x > .1) {
 
-                Bot.driveForward(gamepad1.left_stick_y);
+            Bot.rotateRight(speedMultiply * gamepad1.left_stick_x);
+        }
+        else if (gamepad1.left_stick_x < -.1) {
 
-            } else if (gamepad1.left_stick_y < -.1) {
+            Bot.rotateLeft(speedMultiply * gamepad1.left_stick_x);
+        }
+        else {
 
-                Bot.driveBackward(gamepad1.left_stick_y);
-
-            } else if (gamepad1.left_stick_x > .1) {
-
-                Bot.rotateLeft(gamepad1.left_stick_x);
-
-            } else if (gamepad1.left_stick_x < -.1) {
-
-                Bot.rotateRight(gamepad1.left_stick_x);
-
-            } else {
-
-                Bot.stopMotors();
-            }
-        } else if (gamepad1.dpad_down) {
-            if (gamepad1.left_stick_y > .1) {
-                Bot.driveForward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_y < -.1) {
-                Bot.driveBackward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_x > .1) {
-                Bot.rotateLeft(gamepad1.left_stick_x);
-            } else if (gamepad1.left_stick_x < -.1) {
-                Bot.rotateRight(gamepad1.left_stick_x);
-            } else {
-                Bot.stopMotors();
-            }
+            Bot.stopMotors();
         }
     }
 
 
-    //Methods to control the flag
+    //Control Methods for lowering and rasing the flag
 
     public void flagControl () {
 
@@ -93,6 +80,9 @@ public class FixItTeleOp extends OpMode {
 
     }
 
+    // Control methods for changing the LED Lights
+    //SHORT_RED, SHORT_BLUE, SHORT_WHITE, COLOR_WAVES_LAVA_PALETTE, COLOR_WAVES_OCEAN_PALETTE, STROBE_RED, STROBE_BLUE, STROBE_WHITE
+
     public void ledControl () {
 
         if (gamepad1.left_trigger > 0.1) {
@@ -102,16 +92,17 @@ public class FixItTeleOp extends OpMode {
         }
     }
 
-//SHORT_RED
-//SHORT_BLUE
-//SHORT_WHITE
+    // Control methods for changing speed
+    public void speedControl() {
 
-//COLOR_WAVES_LAVA_PALETTE
-//COLOR_WAVES_OCEAN_PALETTE
+        if (gamepad1.dpad_down) {
+            speedMultiply = 0.5;
+        }
+        else if (gamepad1.dpad_up) {
+            speedMultiply = 1;
+        }
+    }
 
-//STROBE_RED
-//STROBE_BLUE
-//STROBE_WHITE
 
 
 
