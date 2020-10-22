@@ -27,6 +27,12 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
 
     }
 
+    public void stop () {
+
+    }
+
+    // Control Methods
+
     public void speedControl() {
 
         if (gamepad1.dpad_down) {
