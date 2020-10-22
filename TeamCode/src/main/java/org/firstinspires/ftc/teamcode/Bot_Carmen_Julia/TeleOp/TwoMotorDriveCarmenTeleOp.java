@@ -6,34 +6,26 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.Bot_Carmen_Julia.Robot.CarmenBot;
 
-
 @TeleOp(name = "Carmen:Julia:FirstDrive")
-
 public class TwoMotorDriveCarmenTeleOp extends OpMode {
-
-    public double speedMultiply = 1;
-
+    double speedMultiply = 1;
     public CarmenBot Bot = new CarmenBot();
-
-    public void init() {
+    public void init()  {
 
         Bot.initRobot(hardwareMap);
     }
 
-    public void loop () {
+    public void loop()  {
 
-        driveControl();
-        speedControl();
-
+        drive();
+        slowDrive();
     }
 
-    public void stop () {
+    public void stop()  {
+
 
     }
-
-    // Control Methods
-
-    public void speedControl() {
+    public void slowDrive() {
 
         if (gamepad1.dpad_down) {
             speedMultiply = 0.5;
@@ -42,7 +34,7 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
             speedMultiply = 1;
         }
     }
-    public void driveControl(){
+    public void drive(){
 
         if (gamepad1.left_stick_y > .1) {
 
@@ -54,17 +46,15 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
         }
         else if (gamepad1.left_stick_x > .1) {
 
-            Bot.rotateRight(speedMultiply * gamepad1.left_stick_x);
+            Bot.turnRight(speedMultiply * gamepad1.left_stick_x);
         }
         else if (gamepad1.left_stick_x < -.1) {
 
-            Bot.rotateLeft(speedMultiply * gamepad1.left_stick_x);
+            Bot.turnLeft(speedMultiply * gamepad1.left_stick_x);
         }
         else {
 
             Bot.stopMotors();
         }
     }
-
-
 }
