@@ -5,8 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.Bot_Carmen_Julia.Robot.CarmenBot;
+
+
 @TeleOp(name = "Carmen:Julia:FirstDrive")
+
 public class TwoMotorDriveCarmenTeleOp extends OpMode {
+
+    public double speedMultiply = 1;
+
     public CarmenBot Bot = new CarmenBot();
 
     public void init() {
@@ -15,38 +21,44 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
     }
 
     public void loop () {
-        drive();
+
+        driveControl();
+        speedControl();
+
     }
 
-    public void drive () {
-        if (gamepad1.dpad_up) {
+    public void speedControl() {
 
-            if (gamepad1.left_stick_y > .1) {
-                Bot.driveForward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_y < -.1) {
-                Bot.driveBackward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_x > .1) {
-                Bot.rotateLeft(gamepad1.left_stick_x);
-            } else if (gamepad1.left_stick_x < -.1) {
-                Bot.rotateRight(gamepad1.left_stick_x);
-            } else {
-                Bot.stopMotors();
-            }
-        } else if (gamepad1.dpad_down) {
-            if (gamepad1.left_stick_y > .1) {
-                Bot.driveForward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_y < -.1) {
-                Bot.driveBackward(gamepad1.left_stick_y);
-            } else if (gamepad1.left_stick_x > .1) {
-                Bot.rotateLeft(gamepad1.left_stick_x);
-            } else if (gamepad1.left_stick_x < -.1) {
-                Bot.rotateRight(gamepad1.left_stick_x);
-            } else {
-                Bot.stopMotors();
-            }
+        if (gamepad1.dpad_down) {
+            speedMultiply = 0.5;
+        }
+        else if (gamepad1.dpad_up) {
+            speedMultiply = 1;
         }
     }
+    public void driveControl(){
 
+        if (gamepad1.left_stick_y > .1) {
+
+            Bot.driveForward( speedMultiply * gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_y < -.1) {
+
+            Bot.driveBackward(speedMultiply * gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_stick_x > .1) {
+
+            Bot.rotateRight(speedMultiply * gamepad1.left_stick_x);
+        }
+        else if (gamepad1.left_stick_x < -.1) {
+
+            Bot.rotateLeft(speedMultiply * gamepad1.left_stick_x);
+        }
+        else {
+
+            Bot.stopMotors();
+        }
+    }
 
 
 }
