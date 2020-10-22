@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Wheems.Robot;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -10,6 +11,7 @@ public class Robot extends TwoMotorDriveWheems {
 
     //hardware//
     public HardwareMap Wbot = null;
+
 
 
     //physical contructor
@@ -45,8 +47,16 @@ public class Robot extends TwoMotorDriveWheems {
         secondaryServo = Wbot.get(Servo.class, "main_servo");
         secondaryServo.setDirection(Servo.Direction.FORWARD);
 
-    }
+        //leds
+        ledLightsW = Wbot.get(RevBlinkinLedDriver.class, "led_strip");
 
+        ledPatternW = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
+        ledLightsW.setPattern(ledPatternW);
+
+    }
+    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
+        ledLightsW.setPattern(patternName);
+    }
 
 
 

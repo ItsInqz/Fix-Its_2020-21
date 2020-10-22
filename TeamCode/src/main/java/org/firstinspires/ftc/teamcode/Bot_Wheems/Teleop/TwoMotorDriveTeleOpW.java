@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Wheems.Teleop;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -22,6 +23,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         speed();
         drive();
         arm();
+        ledControlW();
     }
 
     public void speed()  {
@@ -77,6 +79,19 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
             Bot.handClose();
 
+        }
+
+
+
+
+
+    }
+    public void ledControlW () {
+        if(gamepad1.left_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_RAINBOW_PALETTE);
+        }
+        if(gamepad1.right_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
         }
     }
 
