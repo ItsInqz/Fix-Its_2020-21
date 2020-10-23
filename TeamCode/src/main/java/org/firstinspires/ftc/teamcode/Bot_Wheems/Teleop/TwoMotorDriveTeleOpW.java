@@ -27,10 +27,10 @@ public class TwoMotorDriveTeleOpW extends OpMode {
     }
 
     public void speed()  {
-        if (gamepad1.right_stick_button){
+        if (gamepad1.left_stick_button){
             speedMultiply = 0.5;
 
-        } else if (gamepad1.left_stick_button){
+        } else if (gamepad1.right_stick_button){
             speedMultiply = 1;
 
         }
@@ -90,7 +90,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         if(gamepad1.left_trigger > 0.1) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_RAINBOW_PALETTE);
         }
-        if(gamepad1.right_trigger > 0.1)  {
+        if(gamepad1.right_trigger > 0.1) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
         }
     }
