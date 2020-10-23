@@ -41,7 +41,7 @@ public class TwoMotorDrive {
         rearLeftMotor.setPower(-ABSpower);
 
     }
-    public void rotateLeft (double power) {
+    public void turnLeft (double power) {
         double ABSpower = Math.abs(power);
 
         rearRightMotor.setPower(-ABSpower);
@@ -50,7 +50,7 @@ public class TwoMotorDrive {
 
     // Reusuable Method to Turn Right (aka Rotate)
 
-    public void rotateRight (double power) {
+    public void turnRight (double power) {
         double ABSpower = Math.abs(power);
 
         rearRightMotor.setPower(ABSpower);
