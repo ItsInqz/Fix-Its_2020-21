@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 public class launcher {
 
-    public DcMotor launcher1;  //backLeftMotor
+    public DcMotor launcher1;
     public DcMotor launcher2;
     public Servo dropper;
 
