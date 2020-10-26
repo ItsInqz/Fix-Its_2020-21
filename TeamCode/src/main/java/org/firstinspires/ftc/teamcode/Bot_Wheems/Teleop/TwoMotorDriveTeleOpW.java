@@ -81,10 +81,6 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
         }
 
-
-
-
-
     }
     public void ledControlW () {
         if(gamepad1.left_trigger > 0.1) {

@@ -16,14 +16,14 @@ public class launcher {
     }
 
     public void startlauncher (double power) {
-        double ABCpower = Math.abs(power);
-        launcher1.setPower(ABCpower);
-        launcher2.setPower(ABCpower);
+        double ABSpower = Math.abs(power);
+        launcher1.setPower(ABSpower);
+        launcher2.setPower(ABSpower);
 
     }
-    public void drop_ball_and_reset () {
+    public void drop_ball_and_reset () throws InterruptedException {
         dropper.setPosition(0.5);
-        //wait(750);
+        wait(750);
         dropper.setPosition(0);
 
     }

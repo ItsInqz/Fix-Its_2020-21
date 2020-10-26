@@ -47,7 +47,7 @@ public class TwoMotorDriveWheems extends WheemsServos {
             BackRightMotor.setPower(-ABSpower);
         }
         //right//
-        //spin//
+        //turn//
         public void turnleft (double power) {
             double ABSpower = Math.abs(power);
 
