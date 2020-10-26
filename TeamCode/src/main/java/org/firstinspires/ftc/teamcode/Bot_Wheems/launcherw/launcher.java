@@ -8,7 +8,7 @@ public class launcher {
     public DcMotor launcher1;
     public DcMotor launcher2;
     public Servo dropper;
-    double launcherPower = 5;
+
 
     public void stoplauncher () {
         launcher1.setPower(0);

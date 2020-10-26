@@ -13,7 +13,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
     public Robot Bot = new Robot();
 
     double speedMultiply = 1;
-
+    double launcherPower = 5;
 
     public void init() {
 
@@ -91,14 +91,19 @@ public class TwoMotorDriveTeleOpW extends OpMode {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
         }
     }
-    //public void shoot () {
-        //if(gamepad1.right_bumper) {
-            //Bot.startlauncher();
+    public void shoot () throws InterruptedException {
+        if(gamepad1.start) {
+            Bot.startlauncher(launcherPower);
 
-        //}
+        }else if(gamepad1.left_bumper) {
+            Bot.drop_ball_and_reset();
 
+        }else if(gamepad1.right_bumper) {
+            Bot.stoplauncher();
 
-    //}
+        }
+
+    }
 
 
 
