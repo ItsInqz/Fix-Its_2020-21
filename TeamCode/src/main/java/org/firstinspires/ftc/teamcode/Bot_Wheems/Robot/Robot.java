@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.Robot;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -44,7 +45,7 @@ public class Robot extends TwoMotorDriveWheems {
         mainServo = Wbot.get(Servo.class, "main_servo");
         mainServo.setDirection(Servo.Direction.FORWARD);
 
-        secondaryServo = Wbot.get(Servo.class, "main_servo");
+        secondaryServo = Wbot.get(Servo.class, "secondary_servo");
         secondaryServo.setDirection(Servo.Direction.FORWARD);
 
         //leds
@@ -52,6 +53,22 @@ public class Robot extends TwoMotorDriveWheems {
 
         ledPatternW = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
         ledLightsW.setPattern(ledPatternW);
+
+        //launcher
+        dropper = Wbot.get(Servo.class, "drop_servo");
+        dropper.setDirection(Servo.Direction.FORWARD);
+
+        launcher1 = Wbot.dcMotor.get("launch_motor_1");
+        launcher2 = Wbot.dcMotor.get("launch_motor_2");
+
+        launcher1.setDirection(DcMotor.Direction.FORWARD);
+        launcher2.setDirection(DcMotor.Direction.FORWARD);
+
+        setMotorRunModes(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        setMotorRunModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        launcher1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        launcher2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     }
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {

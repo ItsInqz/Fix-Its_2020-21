@@ -14,6 +14,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
     double speedMultiply = 1;
 
+
     public void init() {
 
         Bot.initWbot(hardwareMap);
@@ -90,7 +91,14 @@ public class TwoMotorDriveTeleOpW extends OpMode {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
         }
     }
+    //public void shoot () {
+        //if(gamepad1.right_bumper) {
+            //Bot.startlauncher();
 
+        //}
+
+
+    //}
 
 
 
