@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Carmen_Julia.TeleOp;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -19,6 +20,8 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
 
         drive();
         slowDrive();
+        armControl();
+        ledControl();
     }
 
     public void stop()  {
@@ -55,6 +58,24 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
         else {
 
             Bot.stopMotors();
+        }
+    }
+
+    public void armControl (){
+        if (gamepad1.a) {
+            Bot.raiseArm();
+        }
+        else if (gamepad1.b){
+            Bot.lowerArm();
+        }
+    }
+
+    public void ledControl (){
+        if (gamepad1.left_trigger > 0.1) {
+            Bot.setLedPattern((RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE));
+        }
+        else if (gamepad1.right_trigger > 0.1) {
+            Bot.setLedPattern((RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_FOREST_PALETTE));
         }
     }
 }
