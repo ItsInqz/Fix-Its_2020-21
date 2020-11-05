@@ -23,6 +23,8 @@ public class TelOp extends OpMode {
 
         drive();
         slowDrive();
+
+        flagControl ();
     }
 
     public void stop()  {
@@ -59,6 +61,14 @@ public class TelOp extends OpMode {
         else {
 
             Bot.stopMotors();
+        }
+    }
+
+    public void flagControl (){
+        if (gamepad1.left_bumper){
+            Bot.raiseFlag();
+        }else if (gamepad1.right_bumper){
+            Bot.lowerFlag();
         }
     }
 }

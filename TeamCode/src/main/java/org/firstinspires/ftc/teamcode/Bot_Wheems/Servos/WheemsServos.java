@@ -3,7 +3,9 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.Servos;
 
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class WheemsServos {
+import org.firstinspires.ftc.teamcode.Bot_Wheems.lightsW.Lights;
+
+public class WheemsServos extends Lights {
 
     public Servo mainServo;  //arm
     public Servo secondaryServo; //hand
