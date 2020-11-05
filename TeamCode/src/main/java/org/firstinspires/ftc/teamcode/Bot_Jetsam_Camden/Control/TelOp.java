@@ -24,6 +24,7 @@ public class TelOp extends OpMode {
         flagControl();
         drive();
         slowDrive();
+        ledControl();
     }
 
     public void stop()  {

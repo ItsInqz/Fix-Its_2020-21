@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Bot_Wheems.Teleop;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -12,6 +13,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
     public Robot Bot = new Robot();
 
     double speedMultiply = 1;
+    double launcherPower = 5;
 
     public void init() {
 
@@ -22,13 +24,14 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         speed();
         drive();
         arm();
+        ledControlW();
     }
 
     public void speed()  {
-        if (gamepad1.right_stick_button){
+        if (gamepad1.left_stick_button){
             speedMultiply = 0.5;
 
-        } else if (gamepad1.left_stick_button){
+        } else if (gamepad1.right_stick_button){
             speedMultiply = 1;
 
         }
@@ -78,8 +81,29 @@ public class TwoMotorDriveTeleOpW extends OpMode {
             Bot.handClose();
 
         }
-    }
 
+    }
+    public void ledControlW () {
+        if(gamepad1.left_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_RAINBOW_PALETTE);
+        }
+        if(gamepad1.right_trigger > 0.1) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
+        }
+    }
+    public void shoot () throws InterruptedException {
+        if(gamepad1.start) {
+            Bot.startlauncher(launcherPower);
+
+        }else if(gamepad1.left_bumper) {
+            Bot.drop_ball_and_reset();
+
+        }else if(gamepad1.right_bumper) {
+            Bot.stoplauncher();
+
+        }
+
+    }
 
 
 
