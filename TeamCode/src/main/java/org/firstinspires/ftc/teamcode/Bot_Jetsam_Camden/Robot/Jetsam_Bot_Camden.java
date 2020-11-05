@@ -52,11 +52,11 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
     //servo methods
     public void raiseFlag() {
-        flag.setPosition(0.5);
+        flag.setPosition(0.8);
     }
 
     public void lowerFlag() {
-        flag.setPosition(0);
+        flag.setPosition(0.3);
     }
 
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
