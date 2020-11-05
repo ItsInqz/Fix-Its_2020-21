@@ -14,56 +14,54 @@ public class TelOp extends OpMode {
 
     double speedMultiply = 1;
 
-    public void init()  {
+    public void init() {
 
         Bot.initJetsam(hardwareMap);
     }
 
-    public void loop()  {
+    public void loop() {
 
         flagControl();
         drive();
         slowDrive();
+        ledControl();
     }
 
-    public void stop()  {
+    public void stop() {
 
 
     }
+
     public void slowDrive() {
 
         if (gamepad1.dpad_down) {
             speedMultiply = 0.5;
-        }
-        else if (gamepad1.dpad_up) {
+        } else if (gamepad1.dpad_up) {
             speedMultiply = 1;
         }
     }
-    public void drive(){
+
+    public void drive() {
 
         if (gamepad1.left_stick_y > .1) {
 
-            Bot.driveForward( speedMultiply * gamepad1.left_stick_y);
-        }
-        else if (gamepad1.left_stick_y < -.1) {
+            Bot.driveForward(speedMultiply * gamepad1.left_stick_y);
+        } else if (gamepad1.left_stick_y < -.1) {
 
             Bot.driveBackward(speedMultiply * gamepad1.left_stick_y);
-        }
-        else if (gamepad1.left_stick_x > .1) {
+        } else if (gamepad1.left_stick_x > .1) {
 
             Bot.turnRight(speedMultiply * gamepad1.left_stick_x);
-        }
-        else if (gamepad1.left_stick_x < -.1) {
+        } else if (gamepad1.left_stick_x < -.1) {
 
             Bot.turnLeft(speedMultiply * gamepad1.left_stick_x);
-        }
-        else {
+        } else {
 
             Bot.stopMotors();
         }
     }
 
-    public void flagControl(){
+    public void flagControl() {
 
         if (gamepad1.right_bumper) {
             Bot.raiseFlag();
@@ -73,24 +71,19 @@ public class TelOp extends OpMode {
         }
 
 
-
-
     }
 
-    public void ledControl(){
+    public void ledControl() {
 
-        if (gamepad1.a){
+        if (gamepad1.a) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.CONFETTI);
-        }
-        else if (gamepad1.b){
+        } else if (gamepad1.b) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.STROBE_GOLD);
+        } else if (gamepad1.y) {
+            Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE);
         }
-
 
     }
-
-
-
 
 
 }
