@@ -24,17 +24,17 @@ public class FixItBot extends TwoMotorDrive {
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
     public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
-            RevBlinkinLedDriver.BlinkinPattern.GREEN,
-            RevBlinkinLedDriver.BlinkinPattern.RED,
-            RevBlinkinLedDriver.BlinkinPattern.WHITE,
-            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,               // 0 index
+            RevBlinkinLedDriver.BlinkinPattern.RED,                 // 1 index
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,               // 2 index
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };    // 3 index
 
 
     // Timer
-    public ElapsedTime currentTime = new ElapsedTime();
-    public double ledTimer;
-    public double ledTimerIncrementer = 4;
-    public int ledCounter = 0;
+    public ElapsedTime currentTime = new ElapsedTime();             //current Time
+    public double ledTimer;                                         // LED Timer Stopwatch
+    public double ledTimerIncrementer = 4;                          // 4 second incrementer
+    public int ledCounter = 0;                                      // Counter for changing lights
 
 
 

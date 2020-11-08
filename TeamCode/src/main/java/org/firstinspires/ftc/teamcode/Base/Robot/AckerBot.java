@@ -22,16 +22,16 @@ public class AckerBot extends MecanumDrive {
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
     public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
-            RevBlinkinLedDriver.BlinkinPattern.GREEN,
-            RevBlinkinLedDriver.BlinkinPattern.RED,
-            RevBlinkinLedDriver.BlinkinPattern.WHITE,
-            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,               //0 index
+            RevBlinkinLedDriver.BlinkinPattern.RED,                 //1 index
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,               //2 index
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };    //3 index
 
 
     // Timer
     public ElapsedTime currentTime = new ElapsedTime();
     public double ledTimer;
-    public double ledTimerIncrementer = 4;
+    public double ledTimerIncrementer  = 4;
     public int ledCounter = 0;
 
 
@@ -83,11 +83,15 @@ public class AckerBot extends MecanumDrive {
         //Timer Reset
         currentTime.reset();
 
+        //
+        ledCounter = 0 ;
+
 
 
     }
 
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
+
         ledLights.setPattern(patternName);
 
     }
