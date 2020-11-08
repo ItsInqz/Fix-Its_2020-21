@@ -38,12 +38,8 @@ public class AckerBotTeleOp extends OpMode {
     @Override
     public void init() {
 
-        Bot = new AckerBot();
-
         //Hardware Initialization from Robot Class
         Bot.initRobot(hardwareMap);
-
-        TeleOpTime = new ElapsedTime();
 
     }
 
