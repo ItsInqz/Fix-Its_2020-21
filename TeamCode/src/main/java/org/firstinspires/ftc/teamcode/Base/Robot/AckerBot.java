@@ -5,8 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Base.Drivetrains.MecanumDrive;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class AckerBot extends MecanumDrive {
@@ -14,8 +17,22 @@ public class AckerBot extends MecanumDrive {
     //Robot Hardware Constructors
 
     public HardwareMap hwBot  =  null;
-    public RevBlinkinLedDriver blinkinLedDriver;
-    public RevBlinkinLedDriver.BlinkinPattern pattern;
+
+    // Led Variables
+    public RevBlinkinLedDriver ledLights;
+    public RevBlinkinLedDriver.BlinkinPattern ledPattern;
+    public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,
+            RevBlinkinLedDriver.BlinkinPattern.RED,
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };
+
+
+    // Timer
+    public ElapsedTime currentTime = new ElapsedTime();
+    public double ledTimer;
+    public double ledTimerIncrementer = 4;
+    public int ledCounter = 0;
 
 
     //FTC SDK Requirement
@@ -57,13 +74,35 @@ public class AckerBot extends MecanumDrive {
         rearRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+
         //Define & Initialize LEDTester Lights
-        blinkinLedDriver = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
-        pattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
-        blinkinLedDriver.setPattern(pattern);
+        ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
+        ledPattern = RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
+        ledLights.setPattern(ledPattern);
+
+        //Timer Reset
+        currentTime.reset();
 
 
 
+    }
+
+    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
+        ledLights.setPattern(patternName);
+
+    }
+
+    public void christmasPattern () {
+
+        ledTimer += currentTime.time(TimeUnit.SECONDS);
+
+        if (currentTime.time(TimeUnit.SECONDS) >= (ledTimer + ledTimerIncrementer) ) {
+            if (ledCounter % 2 == 0 )
+                ledLights.setPattern(patternArray[0]);
+            else
+                ledLights.setPattern(patternArray[1]);
+        }
+        ledCounter += 1;
     }
 
 

@@ -64,8 +64,8 @@ public class AckerBotTeleOp extends OpMode {
     public void loop() {
 
         drive();
-
-        telemetryOutput();
+        Bot.christmasPattern();
+        //telemetryOutput();
 
 
     }
