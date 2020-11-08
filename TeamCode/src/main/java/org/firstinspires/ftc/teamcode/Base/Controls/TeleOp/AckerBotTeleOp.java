@@ -212,10 +212,10 @@ public class AckerBotTeleOp extends OpMode {
 
 
     public void driveMode () {
-        if (gamepad1.left_bumper) {
+        if (gamepad1.dpad_up) {
             speedMultiply = 0.5;
         }
-        else if (gamepad1.right_bumper) {
+        else if (gamepad1.dpad_down) {
             speedMultiply = 1;
         }
 
