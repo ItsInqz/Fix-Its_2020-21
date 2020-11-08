@@ -35,6 +35,7 @@ public class FixItTeleOp extends OpMode {
         flagControl();
         ledControl();
         speedControl();
+        Bot.christmasPattern();
 
     }
 
@@ -110,4 +111,4 @@ public class FixItTeleOp extends OpMode {
 
 
 
-    }
+}

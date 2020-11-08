@@ -4,8 +4,11 @@ import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Base.Drivetrains.TwoMotorDrive;
+
+import java.util.concurrent.TimeUnit;
 
 public class FixItBot extends TwoMotorDrive {
 
@@ -20,6 +23,18 @@ public class FixItBot extends TwoMotorDrive {
     // Led Variables
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
+    public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,
+            RevBlinkinLedDriver.BlinkinPattern.RED,
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };
+
+
+    // Timer
+    public ElapsedTime currentTime = new ElapsedTime();
+    public double ledTimer;
+    public double ledTimerIncrementer = 4;
+    public int ledCounter = 0;
 
 
 
@@ -27,6 +42,7 @@ public class FixItBot extends TwoMotorDrive {
     public FixItBot() {
 
     }
+
 
     // Custom Robot Initiazition Method
 
@@ -61,10 +77,11 @@ public class FixItBot extends TwoMotorDrive {
 
         //Define & Initialize LEDTester Lights
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
-
         ledPattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
         ledLights.setPattern(ledPattern);
 
+        //Timer Reset
+        currentTime.reset();
 
     }
 
@@ -114,6 +131,20 @@ public class FixItBot extends TwoMotorDrive {
                 ledLights.setPattern(patternName);
 
     }
+
+    public void christmasPattern () {
+
+            ledTimer += currentTime.time(TimeUnit.SECONDS);
+
+            if (currentTime.time(TimeUnit.SECONDS) >= (ledTimer + ledTimerIncrementer) ) {
+                if (ledCounter % 2 == 0 )
+                    ledLights.setPattern(patternArray[0]);
+                else
+                    ledLights.setPattern(patternArray[1]);
+            }
+            ledCounter += 1;
+    }
+
 }
 
 
