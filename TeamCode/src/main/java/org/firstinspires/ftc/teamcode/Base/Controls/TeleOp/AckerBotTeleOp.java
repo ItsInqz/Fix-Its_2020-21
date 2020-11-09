@@ -33,7 +33,6 @@ public class AckerBotTeleOp extends OpMode {
     public AckerBot Bot = new AckerBot();
 
 
-
     // Runs ONCE when driver presses INIT
     @Override
     public void init() {
@@ -65,8 +64,8 @@ public class AckerBotTeleOp extends OpMode {
 
         drive();
         driveMode();
-        Bot.christmasPattern();
-        //telemetryOutput();
+        christmas();
+        telemetryOutput();
 
 
     }
@@ -81,6 +80,11 @@ public class AckerBotTeleOp extends OpMode {
 
         
     public void telemetryOutput() {
+        telemetry.addData("LED", "TeleOp Time: " + Bot.currentTime);
+        telemetry.addData("LED", "LED Timer: " + Bot.ledTimer);
+        telemetry.addData("LED", "LED Counter: " + Bot.ledCounter);
+        telemetry.addData("LED", "LED Pattern: " + Bot.ledPattern);
+        telemetry.addData("LED", "LED Pattern: " + Bot.ledLights);
         telemetry.addData("pwr", "FL mtr: " + frontLeftSpeed);
         telemetry.addData("pwr", "FR mtr: " + frontRightSpeed);
         telemetry.addData("pwr", "RL mtr: " + rearLeftSpeed);
@@ -225,7 +229,10 @@ public class AckerBotTeleOp extends OpMode {
 
     }
 
-
+    public void christmas () {
+        if (gamepad1.left_trigger > 0.1)
+            Bot.christmasPattern();
+    }
 
 
 }
