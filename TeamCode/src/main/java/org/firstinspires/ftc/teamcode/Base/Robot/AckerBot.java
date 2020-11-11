@@ -22,17 +22,25 @@ public class AckerBot extends MecanumDrive {
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
     public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
-            RevBlinkinLedDriver.BlinkinPattern.GREEN,               //0 index
-            RevBlinkinLedDriver.BlinkinPattern.RED,                 //1 index
-            RevBlinkinLedDriver.BlinkinPattern.WHITE,               //2 index
-            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED  };    //3 index
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,                             //0 index
+            RevBlinkinLedDriver.BlinkinPattern.RED,                               //1 index
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,                            //2 index
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED,                    //3 index
+            RevBlinkinLedDriver.BlinkinPattern.LIGHT_CHASE_RED,                  //4 index
+            RevBlinkinLedDriver.BlinkinPattern.TWINKLES_FOREST_PALETTE,          //5 index
+            RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE,       //6 index
+            RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE,           //7 index
+            RevBlinkinLedDriver.BlinkinPattern.SINELON_FOREST_PALETTE,           //8 index
+
+    };
 
 
     // Timer
     public ElapsedTime currentTime = new ElapsedTime();
-    public double ledTimer;
-    public double ledTimerIncrementer  = 4;
+    public int ledTimer;
+    public int ledTimerIncrementer  = 4;
     public int ledCounter = 0;
+
 
 
     //FTC SDK Requirement
@@ -77,8 +85,9 @@ public class AckerBot extends MecanumDrive {
 
         //Define & Initialize LEDTester Lights
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
-        ledPattern = RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
+        ledPattern = RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
         ledLights.setPattern(ledPattern);
+
 
         //Timer Reset
         currentTime.reset();
@@ -96,18 +105,9 @@ public class AckerBot extends MecanumDrive {
 
     }
 
-    public void christmasPattern () {
 
-        ledTimer += currentTime.time(TimeUnit.SECONDS);
 
-        if (currentTime.time(TimeUnit.SECONDS) >= (ledTimer + ledTimerIncrementer) ) {
-            if (ledCounter % 2 == 0 )
-                ledLights.setPattern(patternArray[0]);
-            else
-                ledLights.setPattern(patternArray[1]);
-        }
-        ledCounter += 1;
-    }
+
 
 
 }
