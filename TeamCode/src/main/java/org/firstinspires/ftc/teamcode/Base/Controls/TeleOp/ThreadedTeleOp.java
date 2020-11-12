@@ -55,7 +55,7 @@ public class ThreadedTeleOp extends OpMode {
     // Runs ONCE when driver presses PLAY
     @Override
     public void start() {
-
+        //myLedThread.start();
     }
 
 
@@ -65,7 +65,7 @@ public class ThreadedTeleOp extends OpMode {
 
         drive();
         driveMode();
-        controlLED();
+        //controlLED();
         controlThread();
         telemetryOutput();
 
@@ -75,7 +75,7 @@ public class ThreadedTeleOp extends OpMode {
     // Code to run ONCE after the driver presses STOP
     @Override
     public void stop() {
-
+        //myLedThread.interrupt();
     }
 
 

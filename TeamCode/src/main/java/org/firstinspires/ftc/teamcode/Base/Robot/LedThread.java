@@ -11,7 +11,7 @@ public class LedThread extends Thread {
     public LinearOpMode linearOp = null;
 
 
-    public LedThread() { }
+    public LedThread() {}
 
     public AckerBot Bot = new AckerBot();
 
@@ -26,6 +26,7 @@ public class LedThread extends Thread {
     public void run() {
         linearOp.telemetry.addData("Thread Status:","Starting Thread");
         linearOp.telemetry.update();
+
         try {
 
             while (!isInterrupted() && linearOp.opModeIsActive()) {
@@ -33,20 +34,21 @@ public class LedThread extends Thread {
                 Bot.ledLights.setPattern(Bot.patternArray[0]);
                 linearOp.telemetry.addData("Thread Status:","Pattern 0");
                 linearOp.telemetry.update();
-                wait(2000);
+               // wait(2000);
 
                 Bot.ledLights.setPattern(Bot.patternArray[1]);
                 linearOp.telemetry.addData("Thread Status:","Pattern 1");
                 linearOp.telemetry.update();
-                wait(2000);
+                //wait(2000);
 
                 Bot.ledLights.setPattern(Bot.patternArray[2]);
                 linearOp.telemetry.addData("Thread Status:","Pattern 2");
                 linearOp.telemetry.update();
-                wait(2000);
+                //wait(2000);
 
             }
         }
+        //catch (InterruptedException e) {}
         catch (Exception e) {
             linearOp.telemetry.addData("Thread Status:", "Interrupted Thread");
             linearOp.telemetry.update();
