@@ -47,9 +47,11 @@ public class LedThread extends Thread {
 
             }
         }
-        catch (Exception e) {}
-        linearOp.telemetry.addData("Thread Status:","Interrupted Thread");
-        linearOp.telemetry.update();
+        catch (Exception e) {
+            linearOp.telemetry.addData("Thread Status:", "Interrupted Thread");
+            linearOp.telemetry.update();
+        }
+
     }
 
 
