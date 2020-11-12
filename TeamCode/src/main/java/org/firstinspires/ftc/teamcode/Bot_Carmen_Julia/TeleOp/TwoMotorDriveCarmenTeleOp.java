@@ -72,7 +72,7 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
 
     public void ledControl (){
         if (gamepad1.left_trigger > 0.1) {
-            Bot.setLedPattern((RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE));
+            Bot.setLedPattern((RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE));
         }
         else if (gamepad1.right_trigger > 0.1) {
             Bot.setLedPattern((RevBlinkinLedDriver.BlinkinPattern.BEATS_PER_MINUTE_RAINBOW_PALETTE));
