@@ -5,8 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Base.Drivetrains.MecanumDrive;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class AckerBot extends MecanumDrive {
@@ -14,8 +17,30 @@ public class AckerBot extends MecanumDrive {
     //Robot Hardware Constructors
 
     public HardwareMap hwBot  =  null;
-    public RevBlinkinLedDriver blinkinLedDriver;
-    public RevBlinkinLedDriver.BlinkinPattern pattern;
+
+    // Led Variables
+    public RevBlinkinLedDriver ledLights;
+    public RevBlinkinLedDriver.BlinkinPattern ledPattern;
+    public RevBlinkinLedDriver.BlinkinPattern patternArray[] = {
+            RevBlinkinLedDriver.BlinkinPattern.GREEN,                             //0 index
+            RevBlinkinLedDriver.BlinkinPattern.RED,                               //1 index
+            RevBlinkinLedDriver.BlinkinPattern.WHITE,                            //2 index
+            RevBlinkinLedDriver.BlinkinPattern.HEARTBEAT_RED,                    //3 index
+            RevBlinkinLedDriver.BlinkinPattern.LIGHT_CHASE_RED,                  //4 index
+            RevBlinkinLedDriver.BlinkinPattern.TWINKLES_FOREST_PALETTE,          //5 index
+            RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE,       //6 index
+            RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE,           //7 index
+            RevBlinkinLedDriver.BlinkinPattern.SINELON_FOREST_PALETTE,           //8 index
+
+    };
+
+
+    // Timer
+    public ElapsedTime currentTime = new ElapsedTime();
+    public int ledTimer;
+    public int ledTimerIncrementer  = 4;
+    public int ledCounter = 0;
+
 
 
     //FTC SDK Requirement
@@ -57,14 +82,32 @@ public class AckerBot extends MecanumDrive {
         rearRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+
         //Define & Initialize LEDTester Lights
-        blinkinLedDriver = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
-        pattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
-        blinkinLedDriver.setPattern(pattern);
+        ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
+        ledPattern = RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
+        ledLights.setPattern(ledPattern);
+
+
+        //Timer Reset
+        currentTime.reset();
+
+        //
+        ledCounter = 0 ;
 
 
 
     }
+
+    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
+
+        ledLights.setPattern(patternName);
+
+    }
+
+
+
+
 
 
 }

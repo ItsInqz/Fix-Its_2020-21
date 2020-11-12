@@ -8,8 +8,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Base.Robot.FixItBot;
 
+@Disabled
 @TeleOp(name = "TeleOp - FixIt", group = "FixIt")
-//@Disabled
+
 public class FixItTeleOp extends OpMode {
 
     //TeleOp Variables
@@ -35,6 +36,7 @@ public class FixItTeleOp extends OpMode {
         flagControl();
         ledControl();
         speedControl();
+        Bot.christmasPattern();
 
     }
 
@@ -110,4 +112,4 @@ public class FixItTeleOp extends OpMode {
 
 
 
-    }
+}
