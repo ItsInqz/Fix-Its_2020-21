@@ -6,12 +6,13 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.Base.Robot.AckerBot;
+import org.firstinspires.ftc.teamcode.Base.Robot.LedThread;
 
 
 //@Disabled
-@TeleOp(name = "TeleOp - AckerBot")
+@TeleOp(name = "TeleOp - AckerBot - Threading")
 
-public class AckerBotTeleOp extends OpMode {
+public class ThreadedTeleOp extends OpMode {
 
 
     // Variables & Constants specific to TeleLabBot
@@ -31,6 +32,7 @@ public class AckerBotTeleOp extends OpMode {
     // Object Construction
     public ElapsedTime TeleOpTime = new ElapsedTime();
     public AckerBot Bot = new AckerBot();
+    public LedThread myLedThread = new LedThread();
 
 
     // Runs ONCE when driver presses INIT
@@ -53,8 +55,7 @@ public class AckerBotTeleOp extends OpMode {
     // Runs ONCE when driver presses PLAY
     @Override
     public void start() {
-
-
+        //myLedThread.start();
     }
 
 
@@ -64,7 +65,8 @@ public class AckerBotTeleOp extends OpMode {
 
         drive();
         driveMode();
-        christmas();
+        //controlLED();
+        controlThread();
         telemetryOutput();
 
 
@@ -73,8 +75,7 @@ public class AckerBotTeleOp extends OpMode {
     // Code to run ONCE after the driver presses STOP
     @Override
     public void stop() {
-
-
+        //myLedThread.interrupt();
     }
 
 
@@ -107,10 +108,10 @@ public class AckerBotTeleOp extends OpMode {
             rightStickXVal = -gamepad1.right_stick_x;
             rightStickXVal = Range.clip(rightStickXVal, -1, 1);
 
-            Bot.frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.rearLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-            Bot.rearRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+            Bot.frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+            Bot.rearLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+            Bot.frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            Bot.rearRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
             frontLeftSpeed = leftStickYVal + leftStickXVal + rightStickXVal;
             frontLeftSpeed = Range.clip(frontLeftSpeed, -1, 1);
@@ -215,10 +216,9 @@ public class AckerBotTeleOp extends OpMode {
         if (gamepad1.dpad_up) {
             speedMultiply = 1.0;
         }
-        else if (gamepad1.dpad_down) {
+        if (gamepad1.dpad_down) {
             speedMultiply = 0.5;
         }
-
 
         if (gamepad1.dpad_right) {
             reverseModeToggle = true;
@@ -229,18 +229,31 @@ public class AckerBotTeleOp extends OpMode {
 
     }
 
-    public void christmas () {
+    public void controlLED () {
         if (gamepad1.left_trigger > 0.1)
             Bot.ledLights.setPattern(Bot.patternArray[0]);
         else if (gamepad1.right_trigger > 0.1)
             Bot.ledLights.setPattern(Bot.patternArray[1]);
         else if (gamepad1.left_bumper)
-            Bot.ledLights.setPattern(Bot.patternArray[2]);
-        else if (gamepad1.right_bumper)
             Bot.ledLights.setPattern(Bot.patternArray[3]);
+        else if (gamepad1.right_bumper)
+            Bot.ledLights.setPattern(Bot.patternArray[4]);
         else {
             Bot.ledLights.setPattern(Bot.patternArray[7]);
         }
 
     }
+
+    public void controlThread() {
+        if(gamepad1.a) {
+            myLedThread.start();
+        }
+        if(gamepad1.b) {
+            myLedThread.interrupt();
+        }
+    }
+
+
+
+
 }
