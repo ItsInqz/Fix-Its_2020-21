@@ -65,7 +65,8 @@ public class ThreadedTeleOp extends OpMode {
 
         drive();
         driveMode();
-        christmas();
+        controlLED();
+        controlThread();
         telemetryOutput();
 
 
@@ -228,7 +229,7 @@ public class ThreadedTeleOp extends OpMode {
 
     }
 
-    public void christmas () {
+    public void controlLED () {
         if (gamepad1.left_trigger > 0.1)
             Bot.ledLights.setPattern(Bot.patternArray[0]);
         else if (gamepad1.right_trigger > 0.1)
@@ -243,7 +244,7 @@ public class ThreadedTeleOp extends OpMode {
 
     }
 
-    public void stopThread() {
+    public void controlThread() {
         if(gamepad1.a) {
             myLedThread.start();
         }
