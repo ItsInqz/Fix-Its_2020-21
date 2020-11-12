@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode.Bot_Wheems.Robot;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Bot_Wheems.movement_code.TwoMotorDriveWheems;
 
@@ -12,9 +14,9 @@ public class Robot extends TwoMotorDriveWheems {
 
     //hardware//
     public HardwareMap Wbot = null;
-
-
-
+    //public LinearOpMode linearOp;
+    public ElapsedTime lightTime;
+    public double WaitLight = 1;
     //physical contructor
     public Robot() {
 
@@ -75,8 +77,14 @@ public class Robot extends TwoMotorDriveWheems {
         ledLightsW.setPattern(patternName);
     }
 
-
-
+    public void christmas ()
+    {
+        setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_FOREST_PALETTE);
+        lightTime.reset();
+        if (lightTime.time() > WaitLight) {
+            setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE);
+    }
+    }
 
 
 }
