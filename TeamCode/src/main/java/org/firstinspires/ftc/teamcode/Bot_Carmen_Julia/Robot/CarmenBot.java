@@ -52,11 +52,11 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
 
     public void raiseArm(){
 
-        arm.setPosition(0.1);
+        arm.setPosition(0.2);
     }
     public void lowerArm() {
 
-        arm.setPosition(0.9);
+        arm.setPosition(0.5);
 
     }
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
