@@ -15,9 +15,11 @@ public class WheemsServos extends Lights {
         // main
     public void armStandard() {
         mainServo.setPosition(.40);
+        secondaryServo.setPosition(0);
     }
     public void armDown () {
         mainServo.setPosition(0.10);
+        secondaryServo.setPosition(0.5);
     }
 
     //secondary
