@@ -65,6 +65,7 @@ public class AckerBotTeleOp extends OpMode {
         drive();
         driveMode();
         christmas();
+        controlLauncher();
         telemetryOutput();
 
 
@@ -242,5 +243,20 @@ public class AckerBotTeleOp extends OpMode {
             Bot.ledLights.setPattern(Bot.patternArray[7]);
         }
 
+    }
+
+    public void controlLauncher() {
+        if(gamepad1.y) {
+            Bot.runLauncher(1.0);
+        }
+        if (gamepad1.b) {
+            Bot.stopLauncher();
+        }
+        if (gamepad1.x) {
+            Bot.openTrapDoor();
+        }
+        if(gamepad1.a) {
+            Bot.closeTrapDoor();
+        }
     }
 }
