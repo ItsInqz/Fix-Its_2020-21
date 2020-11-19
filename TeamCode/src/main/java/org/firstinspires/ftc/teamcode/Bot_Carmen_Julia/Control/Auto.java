@@ -81,6 +81,8 @@ public class Auto extends LinearOpMode {
             requestOpModeStop();
         }
         idle();
+
+
     }
 }
 
