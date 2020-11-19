@@ -33,10 +33,10 @@ public class Auto extends LinearOpMode {
             sleep(1000);
             Bot.stopp(0);
             sleep(500);
-            Bot.armDown();
-            sleep(500);
-            Bot.handOpen();
-            sleep(1000);
+            //Bot.armDown();
+            //sleep(500);
+            //Bot.handOpen();
+            //sleep(1000);
             requestOpModeStop();
         }
         idle();
