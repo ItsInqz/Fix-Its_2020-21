@@ -31,8 +31,8 @@ public class Robot extends TwoMotorDriveWheems {
         BackRightMotor = Wbot.dcMotor.get("front_right_motor");
 
         //set direction
-        BackLeftMotor.setDirection(DcMotor.Direction.FORWARD);
-        BackRightMotor.setDirection(DcMotor.Direction.REVERSE);
+        BackLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        BackRightMotor.setDirection(DcMotor.Direction.FORWARD);
 
         //define mode
         setMotorRunModes(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

@@ -21,11 +21,11 @@ public class Auto extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            Bot.driveForward(0.5);
+            Bot.driveForward(-0.5);
             sleep(2000);
-            Bot.turnright(0.5);
-            //sleep(1000);
-            //Bot.turnright(0.5);
+            Bot.turnright(2/3);
+            sleep(1000);
+            Bot.driveForward(0.5);
             //sleep(1000);
             //Bot.turnright(0.5);
             //sleep(1000);

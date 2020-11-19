@@ -50,11 +50,11 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
         if (gamepad1.left_stick_y > .1) {
 
-            Bot.driveForward(speedMultiply*gamepad1.left_stick_y);
+            Bot.driveBackward(speedMultiply*gamepad1.left_stick_y);
 
         } else if (gamepad1.left_stick_y < -.1) {
 
-            Bot.driveBackward(speedMultiply*gamepad1.left_stick_y);
+            Bot.driveForward(speedMultiply*gamepad1.left_stick_y);
 
         } else if (gamepad1.left_stick_x > .1) {
 
