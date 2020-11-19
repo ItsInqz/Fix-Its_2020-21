@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Bot_Wheems.Teleop;
+package org.firstinspires.ftc.teamcode.Bot_Wheems.control;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -50,11 +50,11 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
         if (gamepad1.left_stick_y > .1) {
 
-            Bot.driveForward(speedMultiply*gamepad1.left_stick_y);
+            Bot.driveBackward(speedMultiply*gamepad1.left_stick_y);
 
         } else if (gamepad1.left_stick_y < -.1) {
 
-            Bot.driveBackward(speedMultiply*gamepad1.left_stick_y);
+            Bot.driveForward(speedMultiply*gamepad1.left_stick_y);
 
         } else if (gamepad1.left_stick_x > .1) {
 
