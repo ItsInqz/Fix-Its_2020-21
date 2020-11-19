@@ -25,19 +25,26 @@ public class Auto extends LinearOpMode {
 
         while (opModeIsActive()){
 
+            //square
+            Bot.driveForward(1);
+            sleep(2000);
+            Bot.turnRight(0.5);
+            sleep(1000);
+            Bot.driveForward(1);
+            sleep(2000);
+            Bot.turnRight(0.5);
+            sleep(1000);
+            Bot.driveForward(1);
+            sleep(2000);
+            Bot.turnRight(0.5);
+            sleep(1000);
+            Bot.driveForward(1);
 
-
-
-
+                requestOpModeStop();
         }
 
+        idle();
 
-
-
-
-    }
-
-
-
+        }
 
 }
