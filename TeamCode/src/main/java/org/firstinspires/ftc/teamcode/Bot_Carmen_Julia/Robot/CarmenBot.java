@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Bot_Carmen_Julia.Robot;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -17,6 +18,9 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
 
+
+    public DcMotor leftLaucnher = null;
+    public DcMotor rightLaucnher = null;
     public CarmenBot(){
 
     }
@@ -25,8 +29,19 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
 
         hwBot = hwMap;
 
+        leftLaucnher = hwBot.dcMotor.get("left_laucnher");
+        rightLaucnher = hwBot.dcMotor.get("right_laucnher");
+
+        leftLaucnher.setDirection(DcMotor.Direction.REVERSE);
+        rightLaucnher.setDirection(DcMotor.Direction.REVERSE);
+
+        leftLaucnher.setDirection(DcMotor.Direction.FORWARD);
+        rightLaucnher.setDirection(DcMotor.Direction.FORWARD);
+
         rearLeftMotor =  hwBot.dcMotor.get("rear_left_motor");
         rearRightMotor = hwBot.dcMotor.get("rear_right_motor");
+
+
 
         //Sets the direction of the robot's motors
         rearLeftMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -47,6 +62,8 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
 
         ledPattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_OCEAN_PALETTE;
         ledLights.setPattern(ledPattern);
+
+
 
     }
 
