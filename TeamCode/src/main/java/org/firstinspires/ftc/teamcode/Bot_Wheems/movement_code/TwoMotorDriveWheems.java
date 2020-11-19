@@ -61,5 +61,12 @@ public class TwoMotorDriveWheems extends WheemsServos {
             BackLeftMotor.setPower(ABSpower);
             BackRightMotor.setPower(-ABSpower);
         }
+        public void stopp (double power) {
+            double ABSpower = Math.abs(power);
+
+            BackLeftMotor.setPower(ABSpower);
+            BackRightMotor.setPower(-ABSpower);
+
+        }
 
 }

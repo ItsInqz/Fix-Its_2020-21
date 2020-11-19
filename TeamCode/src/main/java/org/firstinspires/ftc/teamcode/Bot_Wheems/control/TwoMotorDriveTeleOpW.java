@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Bot_Wheems.Teleop;
+package org.firstinspires.ftc.teamcode.Bot_Wheems.control;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
