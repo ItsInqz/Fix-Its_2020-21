@@ -23,16 +23,16 @@ public class Auto extends LinearOpMode {
         while (opModeIsActive()) {
             Bot.driveForward(0.5);
             sleep(2000);
-            Bot.stopp(0);
-            sleep(1000);
             Bot.turnright(0.5);
-            sleep(1000);
-            Bot.turnright(0.5);
-            sleep(1000);
-            Bot.driveForward(0.5);
-            sleep(1000);
-            Bot.stopp(0);
-            sleep(500);
+            //sleep(1000);
+            //Bot.turnright(0.5);
+            //sleep(1000);
+            //Bot.turnright(0.5);
+            //sleep(1000);
+            //Bot.driveForward(0.5);
+            //sleep(1000);
+            //Bot.stopp(0);
+            //sleep(500);
             //Bot.armDown();
             //sleep(500);
             //Bot.handOpen();
