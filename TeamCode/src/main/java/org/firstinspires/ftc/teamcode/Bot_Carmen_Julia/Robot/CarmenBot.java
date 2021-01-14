@@ -64,7 +64,6 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
         ledLights.setPattern(ledPattern);
 
 
-
     }
 
     public void raiseArm(){
@@ -79,4 +78,15 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
         ledLights.setPattern((patternName));
     }
+
+   public void launchCandy() {
+        leftLaucnher.setPower(1);
+        rightLaucnher.setPower(-1);
+    }
+
+    public void stopLauncher() {
+        leftLaucnher.setPower(0);
+        rightLaucnher.setPower(0);
+    }
 }
+
