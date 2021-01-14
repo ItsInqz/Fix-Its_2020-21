@@ -21,7 +21,7 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
         slowDrive();
         armControl();
         ledControl();
-        lanchercontrol();
+        laucnherrcontrol();
     }
 
     public void stop()  {
@@ -80,7 +80,7 @@ public class TwoMotorDriveCarmenTeleOp extends OpMode {
     }
 
 
-    public void lanchercontrol () {
+    public void laucnherrcontrol () {
         if (gamepad1.y) {
             Bot.launchCandy();
         }
