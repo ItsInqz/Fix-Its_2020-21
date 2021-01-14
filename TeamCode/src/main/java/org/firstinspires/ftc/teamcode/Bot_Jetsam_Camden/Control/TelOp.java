@@ -25,7 +25,8 @@ public class TelOp extends OpMode {
         drive();
         slowDrive();
         ledControl();
-
+        candyLaunch();
+        launcherStop();
     }
 
     public void stop() {
@@ -82,6 +83,22 @@ public class TelOp extends OpMode {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.STROBE_GOLD);
         } else if (gamepad1.y) {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_PARTY_PALETTE);
+        }
+
+    }
+
+    public void candyLaunch() {
+
+        if (gamepad1.right_stick_button) {
+            Bot.Launcher.setPower(1);
+        }
+
+    }
+
+    public void launcherStop() {
+
+        if (gamepad1.left_stick_button) {
+            Bot.Launcher.setPower(0);
         }
 
     }

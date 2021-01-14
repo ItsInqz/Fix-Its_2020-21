@@ -15,6 +15,8 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
     public Servo flag = null;
 
+    public DcMotor Launcher = null;
+
     public RevBlinkinLedDriver ledLights;
     public RevBlinkinLedDriver.BlinkinPattern ledPattern;
 
@@ -25,6 +27,9 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
     public void initJetsam(HardwareMap hwMap) {
 
         hwBot = hwMap;
+
+        Launcher = hwBot.dcMotor.get("launcher");
+
 
         rearLeftMotor = hwBot.dcMotor.get("rear_left_motor");
         rearRightMotor = hwBot.dcMotor.get("rear_right_motor");
