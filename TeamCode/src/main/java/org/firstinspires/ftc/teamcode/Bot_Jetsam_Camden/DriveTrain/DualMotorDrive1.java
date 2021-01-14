@@ -33,14 +33,14 @@ public class DualMotorDrive1 {
         rearRightMotor.setPower(0);
     }
 
-    public void driveForward (double power) {
+    public void driveBackward (double power) {
         double ABSpower = Math.abs(power);
 
         rearLeftMotor.setPower(ABSpower);
         rearRightMotor.setPower(ABSpower);
     }
 
-    public void driveBackward (double power) {
+    public void driveForward (double power) {
         double ABSpower = Math.abs(power);
 
         rearLeftMotor.setPower(-ABSpower);
