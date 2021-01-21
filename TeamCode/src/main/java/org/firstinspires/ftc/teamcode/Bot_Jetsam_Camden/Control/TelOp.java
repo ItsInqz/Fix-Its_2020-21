@@ -27,12 +27,12 @@ public class TelOp extends OpMode {
        // ledControl();
         candyLaunch();
         launcherStop();
-        fist();
         thumbsUp();
         roadRage();
         radicalDud();
         highFive();
         wave();
+        reset();
     }
 
     public void stop() {
@@ -109,17 +109,9 @@ public class TelOp extends OpMode {
 
     }
 
-    public void fist() {
 
-        if (gamepad2.a) {
-            Bot.pinkyF.setPosition(0);
-            Bot.middleF.setPosition(0);
-            Bot.ringF.setPosition(0);
-            Bot.indexF.setPosition(0);
-            Bot.thumbF.setPosition(0);
 
-        }
-    }
+
 
     public void thumbsUp() {
 
@@ -166,13 +158,23 @@ public class TelOp extends OpMode {
 
         if (gamepad2.right_stick_button);
             highFive();
-            fist();
+            reset();
             highFive();
-            fist();
+            reset();
             highFive();
-            fist();
+            reset();
+    }
 
+    public void reset() {
+
+        if (gamepad2.right_bumper);
+            Bot.pinkyF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.ringF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.thumbF.setPosition(0);
     }
 
 
-}
+    }
+
