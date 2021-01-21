@@ -27,7 +27,12 @@ public class TelOp extends OpMode {
         ledControl();
         candyLaunch();
         launcherStop();
-        handControl();
+        fist();
+        thumbsUp();
+        roadRage();
+        radicalDud();
+        highFive();
+        wave();
     }
 
     public void stop() {
@@ -104,14 +109,70 @@ public class TelOp extends OpMode {
 
     }
 
-    public void handControl() {
+    public void fist() {
 
         if (gamepad2.a) {
-            Bot.pinkyF.setPosition(1);
-        } else if (gamepad2.b) {
             Bot.pinkyF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.ringF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+
         }
+    }
+
+    public void thumbsUp() {
+
+        if (gamepad2.b)
+            Bot.pinkyF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.ringF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.thumbF.setPosition(1);
+    }
+
+    public void roadRage() {        //ONLY USE WHEN NECESSARY
+
+        if (gamepad2.left_stick_button);
+            Bot.pinkyF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.ringF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(1);
 
     }
+
+    public void radicalDud() {
+
+        if (gamepad2.y);
+            Bot.middleF.setPosition(0);
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(1);
+            Bot.pinkyF.setPosition(1);
+    }
+
+    public void highFive() {
+
+        if (gamepad2.x);
+            Bot.pinkyF.setPosition(1);
+            Bot.thumbF.setPosition(1);
+            Bot.indexF.setPosition(1);
+            Bot.ringF.setPosition(1);
+            Bot.middleF.setPosition(1);
+    }
+
+    public void wave() {
+
+        if (gamepad2.right_stick_button);
+            highFive();
+            fist();
+            highFive();
+            fist();
+            highFive();
+            fist();
+
+    }
+
 
 }

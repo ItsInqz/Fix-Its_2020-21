@@ -16,6 +16,7 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
     public Servo middleF = null;
     public Servo indexF = null;
     public Servo thumbF = null;
+    public Servo ringF = null;
 
     public HardwareMap hwBot = null;
 
@@ -37,6 +38,10 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
         Launcher = hwBot.dcMotor.get("launcher");
 
         pinkyF = hwBot.get(Servo.class, "pinkyF");
+        middleF = hwBot.get(Servo.class, "middleF");
+        indexF = hwBot.get(Servo.class, "indexF");
+        thumbF = hwBot.get(Servo.class, "thumbF");
+        ringF = hwBot.get(Servo.class, "ringF");
 
         rearLeftMotor = hwBot.dcMotor.get("rear_left_motor");
         rearRightMotor = hwBot.dcMotor.get("rear_right_motor");
