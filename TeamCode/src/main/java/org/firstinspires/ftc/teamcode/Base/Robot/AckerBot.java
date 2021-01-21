@@ -44,6 +44,8 @@ public class AckerBot extends MecanumDrive {
 
     //AckerBot specific hardware
     public DcMotor launcher;
+    public DcMotor camLift;
+    public Servo camPivot;
     public Servo trapDoor;
 
     //FTC SDK Requirement
@@ -76,6 +78,7 @@ public class AckerBot extends MecanumDrive {
         rearRightMotor.setDirection(DcMotor.Direction.REVERSE);
 
 
+
         //Initialize Motor Run Mode for Robot
         setMotorRunModes(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMotorRunModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -85,15 +88,24 @@ public class AckerBot extends MecanumDrive {
         rearRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+
         //Other Motors
         launcher = hwBot.dcMotor.get("launcher");
         launcher.setDirection(DcMotor.Direction.REVERSE);
         launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
+        camLift = hwBot.dcMotor.get("cam_lift");
+        camLift.setDirection(DcMotor.Direction.FORWARD);
+        camLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         //Servos
         trapDoor = hwBot.get(Servo.class, "trap_door");
         trapDoor.setDirection(Servo.Direction.REVERSE);
         closeTrapDoor();
+
+        camPivot= hwBot.get(Servo.class, "cam_pivot");
+        camPivot.setDirection(Servo.Direction.FORWARD);
+        camCenter();
 
         //Define & Initialize LEDTester Lights
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
@@ -131,7 +143,7 @@ public class AckerBot extends MecanumDrive {
     }
 
     public void openTrapDoor () {
-        trapDoor.setPosition(.4);
+        trapDoor.setPosition(.6);
 
     }
 
@@ -139,7 +151,32 @@ public class AckerBot extends MecanumDrive {
         trapDoor.setPosition(.7);
     }
 
+    public void camLeft () {
+        camPivot.setPosition(.1);
 
+    }
+
+    public void camRight () {
+
+        camPivot.setPosition(.9);
+    }
+
+    public void camCenter () {
+
+        camPivot.setPosition(.5);
+    }
+
+    public void camLiftDown () {
+        camLift.setPower(-1.0);
+    }
+
+    public void camLiftUp () {
+        camLift.setPower(1.0);
+    }
+
+    public void camLiftStop () {
+        camLift.setPower(0.0);
+    }
 
 
 }

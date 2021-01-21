@@ -26,7 +26,7 @@ public class AckerBotTeleOp extends OpMode {
 
     double powerThreshold = 0;
     double speedMultiply = 1;
-    boolean reverseModeToggle = true;
+    boolean reverseModeToggle = false;
 
     // Object Construction
     public ElapsedTime TeleOpTime = new ElapsedTime();
@@ -64,8 +64,10 @@ public class AckerBotTeleOp extends OpMode {
 
         drive();
         driveMode();
-        christmas();
+     //   christmas();
         controlLauncher();
+        controlCamLift();
+        controlCamPivot();
         telemetryOutput();
 
 
@@ -107,11 +109,6 @@ public class AckerBotTeleOp extends OpMode {
             leftStickXVal = Range.clip(leftStickXVal, -1, 1);
             rightStickXVal = -gamepad1.right_stick_x;
             rightStickXVal = Range.clip(rightStickXVal, -1, 1);
-
-            Bot.frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.rearLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-            Bot.rearRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
             frontLeftSpeed = leftStickYVal + leftStickXVal + rightStickXVal;
             frontLeftSpeed = Range.clip(frontLeftSpeed, -1, 1);
@@ -156,16 +153,12 @@ public class AckerBotTeleOp extends OpMode {
 
         else {
 
-            leftStickYVal = -gamepad1.left_stick_y;
+            leftStickYVal = gamepad1.left_stick_y;
             leftStickYVal = Range.clip(leftStickYVal, -1, 1);
             leftStickXVal = gamepad1.left_stick_x;
             leftStickXVal = Range.clip(leftStickXVal, -1, 1);
             rightStickXVal = gamepad1.right_stick_x;
             rightStickXVal = Range.clip(rightStickXVal, -1, 1);
-            Bot.frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.rearLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            Bot.frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-            Bot.rearRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
             frontLeftSpeed = leftStickYVal + leftStickXVal + rightStickXVal;
             frontLeftSpeed = Range.clip(frontLeftSpeed, -1, 1);
@@ -235,10 +228,6 @@ public class AckerBotTeleOp extends OpMode {
             Bot.ledLights.setPattern(Bot.patternArray[0]);
         else if (gamepad1.right_trigger > 0.1)
             Bot.ledLights.setPattern(Bot.patternArray[1]);
-        else if (gamepad1.left_bumper)
-            Bot.ledLights.setPattern(Bot.patternArray[2]);
-        else if (gamepad1.right_bumper)
-            Bot.ledLights.setPattern(Bot.patternArray[3]);
         else {
             Bot.ledLights.setPattern(Bot.patternArray[7]);
         }
@@ -259,4 +248,29 @@ public class AckerBotTeleOp extends OpMode {
             Bot.closeTrapDoor();
         }
     }
+
+
+    public void controlCamLift() {
+        if (gamepad1.left_trigger > 0.1)
+            Bot.camLiftUp();
+        else if (gamepad1.right_trigger > 0.1)
+            Bot.camLiftDown();
+        else {
+            Bot.camLiftStop()
+;        }
+    }
+
+    public void controlCamPivot() {
+
+        if(gamepad1.left_bumper) {
+            Bot.camLeft();
+        }
+        else if(gamepad1.right_bumper) {
+            Bot.camRight();
+        }
+        else  {
+            Bot.camCenter();
+        }
+    }
+
 }
