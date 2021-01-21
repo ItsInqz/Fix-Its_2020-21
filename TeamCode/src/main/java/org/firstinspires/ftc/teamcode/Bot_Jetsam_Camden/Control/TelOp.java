@@ -27,6 +27,7 @@ public class TelOp extends OpMode {
         ledControl();
         candyLaunch();
         launcherStop();
+        handControl();
     }
 
     public void stop() {
@@ -103,5 +104,14 @@ public class TelOp extends OpMode {
 
     }
 
+    public void handControl() {
+
+        if (gamepad2.a) {
+            Bot.pinkyF.setPosition(1);
+        } else if (gamepad2.b) {
+            Bot.pinkyF.setPosition(0);
+        }
+
+    }
 
 }

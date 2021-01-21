@@ -11,6 +11,12 @@ import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.DriveTrain.DualMotorDriv
 public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
     //hardware variable
+
+    public Servo pinkyF = null;
+    public Servo middleF = null;
+    public Servo indexF = null;
+    public Servo thumbF = null;
+
     public HardwareMap hwBot = null;
 
     public Servo flag = null;
@@ -30,6 +36,7 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
         Launcher = hwBot.dcMotor.get("launcher");
 
+        pinkyF = hwBot.get(Servo.class, "pinkyF");
 
         rearLeftMotor = hwBot.dcMotor.get("rear_left_motor");
         rearRightMotor = hwBot.dcMotor.get("rear_right_motor");
