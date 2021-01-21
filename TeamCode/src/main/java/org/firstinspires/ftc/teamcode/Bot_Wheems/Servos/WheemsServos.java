@@ -19,14 +19,14 @@ public class WheemsServos extends Lights {
         // main
     public void armStandard() {//throws InterruptedException{
         mainServo.setPosition(0.35);
-        secondaryServo.setPosition(1.2);
+        secondaryServo.setPosition(1);
         //linearOp.sleep(500);
         //mainServo.setPosition(.55);
         //secondaryServo.setPosition(0.9);
     }
     public void armDown () {//throws InterruptedException{
-        mainServo.setPosition(1.4);
-        secondaryServo.setPosition(1.2);
+        mainServo.setPosition(1.2);
+        secondaryServo.setPosition(0.4);
         //linearOp.sleep(500);
         //mainServo.setPosition(0.2);
         //secondaryServo.setPosition(1.5);
@@ -34,10 +34,10 @@ public class WheemsServos extends Lights {
 
     //secondary
     public void handOpen () {
-        secondaryServo.setPosition(.40);
+        secondaryServo.setPosition(1);
     }
     public void handClose () {
-        secondaryServo.setPosition(.10);
+        secondaryServo.setPosition(.4);
     }
 
 
