@@ -2,12 +2,15 @@ package org.firstinspires.ftc.teamcode.Bot_Wheems.launcherw;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class launcher {
 
     public DcMotor launcher1;
     public DcMotor launcher2;
     public Servo dropper;
+    public ElapsedTime WaitTime;
+    public double WaitTime2 = 1;
 
 
     public void stoplauncher () {
@@ -22,11 +25,14 @@ public class launcher {
         launcher2.setPower(ABSpower);
 
     }
-    public void drop_ball_and_reset () throws InterruptedException {
-        dropper.setPosition(0.5);
-        wait(750);
-        dropper.setPosition(0);
-
+    public void drop_ball_and_reset () {
+        WaitTime.reset();
+        while (WaitTime.time() < WaitTime2);{
+            dropper.setPosition(0.5);
+        }
+        while (WaitTime.time() > WaitTime2){
+            dropper.setPosition(0);
+        }
     }
     //this is all theoretical//
 }

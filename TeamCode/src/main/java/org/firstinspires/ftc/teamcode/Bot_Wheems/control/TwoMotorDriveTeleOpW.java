@@ -24,14 +24,12 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         speed();
         drive();
         arm();
-
-            //ledControlW();
-
-        //try {
-            //shoot();
-        //} catch (InterruptedException e) {
-            //e.printStackTrace();
-        //}
+        try {
+            shoot();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ledControlW();
     }
 
     public void speed()  {
@@ -100,19 +98,19 @@ public class TwoMotorDriveTeleOpW extends OpMode {
             Bot.setLedPattern(RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_OCEAN_PALETTE);
         }
     }
-    //public void shoot () throws InterruptedException {
-        //if(gamepad1.start) {
-            //Bot.startlauncher(launcherPower);
+    public void shoot () throws InterruptedException {
+        if(gamepad1.start) {
+            Bot.startlauncher(launcherPower);
 
-        //}else if(gamepad1.left_bumper) {
-            //Bot.drop_ball_and_reset();
+        }else if(gamepad1.left_bumper) {
+            Bot.drop_ball_and_reset();
 
-       // }else if(gamepad1.right_bumper) {
-            //Bot.stoplauncher();
+        }else if(gamepad1.right_bumper) {
+            Bot.stoplauncher();
 
-        //}
+        }
 
-    //}
+    }
 
 
 
