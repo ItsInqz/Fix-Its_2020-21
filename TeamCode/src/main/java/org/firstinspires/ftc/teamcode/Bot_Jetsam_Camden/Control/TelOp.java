@@ -24,7 +24,7 @@ public class TelOp extends OpMode {
         flagControl();
         drive();
         slowDrive();
-        ledControl();
+       // ledControl();
         candyLaunch();
         launcherStop();
         fist();
@@ -80,7 +80,7 @@ public class TelOp extends OpMode {
 
 
     }
-
+/**
     public void ledControl() {
 
         if (gamepad1.a) {
@@ -92,7 +92,7 @@ public class TelOp extends OpMode {
         }
 
     }
-
+**/
     public void candyLaunch() {
 
         if (gamepad1.right_stick_button) {
