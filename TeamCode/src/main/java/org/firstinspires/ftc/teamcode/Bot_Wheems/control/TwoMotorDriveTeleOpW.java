@@ -25,7 +25,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
         drive();
         arm();
 
-            ledControlW();
+            //ledControlW();
 
         //try {
             //shoot();
@@ -75,7 +75,7 @@ public class TwoMotorDriveTeleOpW extends OpMode {
 
             Bot.armStandard();
 
-        } else if (gamepad1.a ) {
+        } else if (gamepad1.a) {
 
             Bot.armDown();
 

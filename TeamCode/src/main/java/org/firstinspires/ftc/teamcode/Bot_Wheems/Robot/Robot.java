@@ -45,7 +45,7 @@ public class Robot extends TwoMotorDriveWheems {
 
         //Servos
         mainServo = Wbot.get(Servo.class, "main_servo");
-        mainServo.setDirection(Servo.Direction.FORWARD);
+        mainServo.setDirection(Servo.Direction.REVERSE);
 
         secondaryServo = Wbot.get(Servo.class, "secondary_servo");
         secondaryServo.setDirection(Servo.Direction.FORWARD);
