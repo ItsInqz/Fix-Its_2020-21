@@ -24,8 +24,8 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
     public DcMotor Launcher = null;
 
-    public RevBlinkinLedDriver ledLights;
-    public RevBlinkinLedDriver.BlinkinPattern ledPattern;
+   // public RevBlinkinLedDriver ledLights;
+   //   public RevBlinkinLedDriver.BlinkinPattern ledPattern;
 
     public Jetsam_Bot_Camden() {
 
@@ -60,10 +60,10 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
         flag = hwBot.get(Servo.class, "flag");
         flag.setDirection(Servo.Direction.FORWARD);
 
-        ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
+     //   ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
 
-        ledPattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
-        ledLights.setPattern((ledPattern));
+    //    ledPattern = RevBlinkinLedDriver.BlinkinPattern.COLOR_WAVES_LAVA_PALETTE;
+     //   ledLights.setPattern((ledPattern));
 
     }
 
@@ -76,11 +76,11 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
         flag.setPosition(0.3);
     }
 
-    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
-            ledLights.setPattern(patternName);
+   // public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
+   //         ledLights.setPattern(patternName);
 
     }
 
 
 
-}
+
