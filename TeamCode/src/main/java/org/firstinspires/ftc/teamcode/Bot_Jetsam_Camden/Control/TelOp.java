@@ -29,10 +29,10 @@ public class TelOp extends OpMode {
         launcherStop();
         thumbsUp();
         roadRage();
-        radicalDud();
+        radical();
         highFive();
         wave();
-        reset();
+        fist();
     }
 
     public void stop() {
@@ -115,64 +115,125 @@ public class TelOp extends OpMode {
 
     public void thumbsUp() {
 
-        if (gamepad2.b)
+        if (gamepad2.b) {
             Bot.pinkyF.setPosition(0);
             Bot.indexF.setPosition(0);
             Bot.ringF.setPosition(0);
             Bot.middleF.setPosition(0);
             Bot.thumbF.setPosition(1);
+        }
+
+        else {
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.pinkyF.setPosition(0);
+        }
     }
+
 
     public void roadRage() {        //ONLY USE WHEN NECESSARY
 
-        if (gamepad2.left_stick_button);
+        if (gamepad2.left_stick_button)
+
+        {
             Bot.pinkyF.setPosition(0);
             Bot.thumbF.setPosition(0);
             Bot.ringF.setPosition(0);
             Bot.indexF.setPosition(0);
             Bot.middleF.setPosition(1);
+        }
+
+        else {
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.pinkyF.setPosition(0);
+        }
 
     }
 
-    public void radicalDud() {
 
-        if (gamepad2.y);
+    public void radical() {
+
+        if (gamepad2.y)
+        {
             Bot.middleF.setPosition(0);
             Bot.ringF.setPosition(0);
             Bot.thumbF.setPosition(0);
             Bot.indexF.setPosition(1);
             Bot.pinkyF.setPosition(1);
+        }
+
+        else {
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.pinkyF.setPosition(0);
+        }
     }
 
     public void highFive() {
 
-        if (gamepad2.x);
+        if (gamepad2.x)
+        {
             Bot.pinkyF.setPosition(1);
             Bot.thumbF.setPosition(1);
             Bot.indexF.setPosition(1);
             Bot.ringF.setPosition(1);
             Bot.middleF.setPosition(1);
+        }
+
+        else {
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.pinkyF.setPosition(0);
+        }
     }
 
     public void wave() {
 
-        if (gamepad2.right_stick_button);
+        if (gamepad2.right_stick_button)
+        {
             highFive();
-            reset();
+            fist();
             highFive();
-            reset();
+            fist();
             highFive();
-            reset();
+            fist();
+        }
+        else {
+            Bot.ringF.setPosition(0);
+            Bot.thumbF.setPosition(0);
+            Bot.indexF.setPosition(0);
+            Bot.middleF.setPosition(0);
+            Bot.pinkyF.setPosition(0);
+        }
     }
 
-    public void reset() {
+    public void fist() {
 
-        if (gamepad2.right_bumper);
+        if (gamepad2.right_bumper) {
+
             Bot.pinkyF.setPosition(0);
             Bot.middleF.setPosition(0);
             Bot.ringF.setPosition(0);
             Bot.indexF.setPosition(0);
             Bot.thumbF.setPosition(0);
+        }
+
+            else {
+                Bot.ringF.setPosition(0);
+                Bot.thumbF.setPosition(0);
+                Bot.indexF.setPosition(0);
+                Bot.middleF.setPosition(0);
+                Bot.pinkyF.setPosition(0);
+            }
     }
 
 

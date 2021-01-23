@@ -37,11 +37,22 @@ public class Jetsam_Bot_Camden extends DualMotorDrive1 {
 
         Launcher = hwBot.dcMotor.get("launcher");
 
+
         pinkyF = hwBot.get(Servo.class, "pinkyF");
+        pinkyF.setDirection(Servo.Direction.FORWARD);
+
         middleF = hwBot.get(Servo.class, "middleF");
+        middleF.setDirection(Servo.Direction.FORWARD);
+
         indexF = hwBot.get(Servo.class, "indexF");
+        indexF.setDirection(Servo.Direction.FORWARD);
+
         thumbF = hwBot.get(Servo.class, "thumbF");
+        thumbF.setDirection(Servo.Direction.FORWARD);
+
         ringF = hwBot.get(Servo.class, "ringF");
+        ringF.setDirection(Servo.Direction.FORWARD);
+
 
         rearLeftMotor = hwBot.dcMotor.get("rear_left_motor");
         rearRightMotor = hwBot.dcMotor.get("rear_right_motor");
