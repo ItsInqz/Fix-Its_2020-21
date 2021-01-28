@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Base.Robot;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -36,11 +37,15 @@ public class AckerBot extends MecanumDrive {
     };
 
 
-    // Timer
+    // LED Timer
     public ElapsedTime currentTime = new ElapsedTime();
     public int ledTimer;
     public int ledTimerIncrementer  = 4;
     public int ledCounter = 0;
+
+    // TeleOp timer
+    public ElapsedTime timer = new ElapsedTime();
+    double waitTime = 2.0;
 
     //AckerBot specific hardware
     public DcMotor launcher;
@@ -48,11 +53,19 @@ public class AckerBot extends MecanumDrive {
     public Servo camPivot;
     public Servo trapDoor;
 
+    // Hand & Arm Hardware
+    public Servo pinkyF = null;
+    public Servo middleF = null;
+    public Servo indexF = null;
+    public Servo thumbF = null;
+    public Servo ringF = null;
+
     //FTC SDK Requirement
     public LinearOpMode linearOp = null;
     public void setLinearOp (LinearOpMode Op) {
         linearOp = Op;
     }
+
 
     //LabBot Constructor
 
@@ -89,7 +102,8 @@ public class AckerBot extends MecanumDrive {
         rearLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
-        //Other Motors
+        //Define & Initialize Candy Launcher Motors
+
         launcher = hwBot.dcMotor.get("launcher");
         launcher.setDirection(DcMotor.Direction.REVERSE);
         launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -98,7 +112,8 @@ public class AckerBot extends MecanumDrive {
         camLift.setDirection(DcMotor.Direction.FORWARD);
         camLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        //Servos
+        //Define & Initialize Candy Launcher Servos
+
         trapDoor = hwBot.get(Servo.class, "trap_door");
         trapDoor.setDirection(Servo.Direction.REVERSE);
         closeTrapDoor();
@@ -108,9 +123,27 @@ public class AckerBot extends MecanumDrive {
         camCenter();
 
         //Define & Initialize LEDTester Lights
+
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
         ledPattern = RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
         ledLights.setPattern(ledPattern);
+
+        //Define & Initialiize Hand Hardware
+
+        pinkyF = hwBot.get(Servo.class, "pinkyF");
+        pinkyF.setDirection(Servo.Direction.FORWARD);
+
+        middleF = hwBot.get(Servo.class, "middleF");
+        middleF.setDirection(Servo.Direction.FORWARD);
+
+        indexF = hwBot.get(Servo.class, "indexF");
+        indexF.setDirection(Servo.Direction.FORWARD);
+
+        thumbF = hwBot.get(Servo.class, "thumbF");
+        thumbF.setDirection(Servo.Direction.FORWARD);
+
+        ringF = hwBot.get(Servo.class, "ringF");
+        ringF.setDirection(Servo.Direction.FORWARD);
 
 
         //Timer Reset
@@ -120,14 +153,17 @@ public class AckerBot extends MecanumDrive {
         ledCounter = 0 ;
 
 
-
     }
 
-    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
 
+    // LED Control Methods
+
+    public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {
         ledLights.setPattern(patternName);
 
     }
+
+    // Candy Launcher Methods
 
     public void stopLauncher () {
         launcher.setPower(0);
@@ -151,18 +187,19 @@ public class AckerBot extends MecanumDrive {
         trapDoor.setPosition(.7);
     }
 
+
+    // FPV Camera Control Methods
+
     public void camLeft () {
         camPivot.setPosition(.1);
 
     }
 
     public void camRight () {
-
         camPivot.setPosition(.9);
     }
 
     public void camCenter () {
-
         camPivot.setPosition(.5);
     }
 
@@ -175,7 +212,129 @@ public class AckerBot extends MecanumDrive {
     }
 
     public void camLiftStop () {
+
         camLift.setPower(0.0);
+    }
+
+    // Hand Control Methods
+
+    public void handWaveHand(){
+        handOpenHand();
+        timer.reset();
+        if (timer.time() < waitTime-1) {}
+        handCloseHand();
+        timer.reset();
+        if (timer.time() < waitTime-1) {}
+        handOpenHand();
+        timer.reset();
+        if (timer.time() < waitTime-1) {}
+        handCloseHand();
+        timer.reset();
+        if (timer.time() < waitTime-1) {}
+        handOpenHand();
+        timer.reset();
+        if (timer.time() < waitTime-1) {}
+        handCloseHand();
+    }
+
+    public void handCount(){
+        handNumberOne();
+        timer.reset();
+        if (timer.time() < waitTime) {}
+        handNumberTwo();
+        timer.reset();
+        if (timer.time() < waitTime) {}
+        handNumberThree();
+        timer.reset();
+        if (timer.time() < waitTime) {}
+        handNumberFour();
+        timer.reset();
+        if (timer.time() < waitTime) {}
+        handNumberFive();
+        timer.reset();
+        if (timer.time() < waitTime+2) {}
+        handCloseHand();
+    }
+
+
+    public void handMakeFist(){
+        pinkyF.setPosition(0.2);
+        indexF.setPosition(0.2);
+        middleF.setPosition(0.2);
+        ringF.setPosition(0.2);
+        thumbF.setPosition(0.2);
+    }
+
+    public void handOpenHand(){
+        pinkyF.setPosition(1);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(1);
+        thumbF.setPosition(1);
+    }
+
+    public void handCloseHand(){
+        pinkyF.setPosition(0);
+        indexF.setPosition(0);
+        middleF.setPosition(0);
+        ringF.setPosition(0);
+        thumbF.setPosition(0);
+    }
+
+    public void handHangOut(){
+        pinkyF.setPosition(0.1);
+        indexF.setPosition(1);
+        middleF.setPosition(0.1);
+        ringF.setPosition(1);
+        thumbF.setPosition(0.1);
+    }
+
+    public void handThumbsUp(){
+        pinkyF.setPosition(0.1);
+        indexF.setPosition(0.1);
+        middleF.setPosition(0.1);
+        ringF.setPosition(0.1);
+        thumbF.setPosition(1);
+    }
+
+    public void handNumberOne(){
+        pinkyF.setPosition(0.0);
+        indexF.setPosition(1);
+        middleF.setPosition(0.0);
+        ringF.setPosition(0.0);
+        thumbF.setPosition(0);
+    }
+
+    public void handNumberTwo(){
+        pinkyF.setPosition(0.0);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(0.0);
+        thumbF.setPosition(0);
+    }
+
+    public void handNumberThree(){
+        pinkyF.setPosition(0.0);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(1);
+        thumbF.setPosition(0);
+    }
+
+    public void handNumberFour(){
+        pinkyF.setPosition(1);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(1);
+        thumbF.setPosition(0);
+    }
+
+    public void handNumberFive(){
+        pinkyF.setPosition(1);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(1);
+        thumbF.setPosition(1);
     }
 
 
