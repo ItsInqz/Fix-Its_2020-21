@@ -29,7 +29,7 @@ public class TelOp extends OpMode {
         launcherStop();
         thumbsUp();
         roadRage();
-        radical();
+        surferWave();
         highFive();
         wave();
         fist();
@@ -156,7 +156,7 @@ public class TelOp extends OpMode {
     }
 
 
-    public void radical() {
+    public void surferWave() {
 
         if (gamepad2.y)
         {
@@ -196,7 +196,7 @@ public class TelOp extends OpMode {
         }
     }
 
-    public void wave() {
+     public void wave() {
 
         if (gamepad2.right_stick_button)
         {
@@ -214,7 +214,7 @@ public class TelOp extends OpMode {
             Bot.middleF.setPosition(0);
             Bot.pinkyF.setPosition(0);
         }
-    }
+    } 
 
     public void fist() {
 
