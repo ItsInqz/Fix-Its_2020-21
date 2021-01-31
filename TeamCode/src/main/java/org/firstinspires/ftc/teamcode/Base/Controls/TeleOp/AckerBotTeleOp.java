@@ -68,7 +68,6 @@ public class AckerBotTeleOp extends OpMode {
         controlLauncher();
         controlCamLift();
         controlCamPivot();
-        controlHand();
         telemetryOutput();
 
 
@@ -274,24 +273,6 @@ public class AckerBotTeleOp extends OpMode {
         }
     }
 
-    public void controlHand() {
-        if(gamepad2.a) {
-            Bot.handHangOut();
 
-        }
-        else if(gamepad2.b) {
-            Bot.handThumbsUp();
-        }
-        else if(gamepad2.x) {
-            Bot.handCount();
-        }
-        else if(gamepad2.y) {
-            Bot.handWaveHand();
-        }
-        else  {
-            Bot.handCloseHand();
-        }
-
-    }
 
 }
