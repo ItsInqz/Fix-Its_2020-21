@@ -29,8 +29,8 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
 
         hwBot = hwMap;
 
-        leftLaucnher = hwBot.dcMotor.get("left_laucnher");
-        rightLaucnher = hwBot.dcMotor.get("right_laucnher");
+        leftLaucnher = hwBot.dcMotor.get("left_launcher");
+        rightLaucnher = hwBot.dcMotor.get("right_launcher");
 
         leftLaucnher.setDirection(DcMotor.Direction.REVERSE);
         rightLaucnher.setDirection(DcMotor.Direction.REVERSE);
@@ -68,11 +68,11 @@ public class CarmenBot extends TwoMotorDrive {// Custom Robot Initiazition Metho
 
     public void raiseArm(){
 
-        arm.setPosition(0.2);
+        arm.setPosition(0.6);
     }
     public void lowerArm() {
 
-        arm.setPosition(0.5);
+        arm.setPosition(0);
 
     }
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName){
