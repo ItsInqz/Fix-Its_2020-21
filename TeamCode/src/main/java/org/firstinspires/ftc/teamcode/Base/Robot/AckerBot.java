@@ -53,13 +53,6 @@ public class AckerBot extends MecanumDrive {
     public Servo camPivot;
     public Servo trapDoor;
 
-    // Hand & Arm Hardware
-    public Servo pinkyF = null;
-    public Servo middleF = null;
-    public Servo indexF = null;
-    public Servo thumbF = null;
-    public Servo ringF = null;
-
     //FTC SDK Requirement
     public LinearOpMode linearOp = null;
     public void setLinearOp (LinearOpMode Op) {
@@ -127,23 +120,6 @@ public class AckerBot extends MecanumDrive {
         ledLights = hwBot.get(RevBlinkinLedDriver.class, "led_strip");
         ledPattern = RevBlinkinLedDriver.BlinkinPattern.RAINBOW_PARTY_PALETTE;   //https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
         ledLights.setPattern(ledPattern);
-
-        //Define & Initialiize Hand Hardware
-
-        pinkyF = hwBot.get(Servo.class, "pinkyF");
-        pinkyF.setDirection(Servo.Direction.FORWARD);
-
-        middleF = hwBot.get(Servo.class, "middleF");
-        middleF.setDirection(Servo.Direction.FORWARD);
-
-        indexF = hwBot.get(Servo.class, "indexF");
-        indexF.setDirection(Servo.Direction.FORWARD);
-
-        thumbF = hwBot.get(Servo.class, "thumbF");
-        thumbF.setDirection(Servo.Direction.FORWARD);
-
-        ringF = hwBot.get(Servo.class, "ringF");
-        ringF.setDirection(Servo.Direction.FORWARD);
 
 
         //Timer Reset
@@ -216,7 +192,8 @@ public class AckerBot extends MecanumDrive {
         camLift.setPower(0.0);
     }
 
-    // Hand Control Methods
+    /**
+    Hand Control Methods
 
     public void handWaveHand(){
         handOpenHand();
@@ -337,5 +314,6 @@ public class AckerBot extends MecanumDrive {
         thumbF.setPosition(1);
     }
 
+**/
 
 }
