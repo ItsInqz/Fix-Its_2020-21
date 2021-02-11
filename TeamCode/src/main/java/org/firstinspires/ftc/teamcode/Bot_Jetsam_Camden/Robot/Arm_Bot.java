@@ -31,7 +31,7 @@ public class Arm_Bot {
         indexF.setDirection(Servo.Direction.FORWARD);
 
         thumbF = hwBot.get(Servo.class, "thumbF");
-        thumbF.setDirection(Servo.Direction.FORWARD);
+        thumbF.setDirection(Servo.Direction.REVERSE);
 
         ringF = hwBot.get(Servo.class, "ringF");
         ringF.setDirection(Servo.Direction.FORWARD);
