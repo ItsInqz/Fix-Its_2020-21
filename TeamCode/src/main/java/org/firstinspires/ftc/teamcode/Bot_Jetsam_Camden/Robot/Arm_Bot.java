@@ -11,8 +11,23 @@ public class Arm_Bot {
     public Servo thumbF = null;
     public Servo ringF = null;
 
+    public Servo shoulderJ = null;
+    public Servo elbowJ = null;
+
     public HardwareMap hwBot = null;
 
+    public double elbowOpen = 1.0;
+    public double elbowClose = 0;
+    double elbowDelta = Math.abs(elbowClose-elbowOpen);
+    double elbowIncrements = 10;
+    double elbowIncrementAmt = elbowDelta / elbowIncrements;
+
+    double shoulderOpen = 1.0;
+    double shoulderClose = 0;
+    double shoulderDelta = Math.abs(shoulderClose-shoulderOpen);
+    double shoulderIncrements = 10;
+    double shoulderIncrementAmt = shoulderDelta / shoulderIncrements;
+    boolean shoulderMove = false;
 
     public Arm_Bot() {
     }
@@ -35,6 +50,13 @@ public class Arm_Bot {
 
         ringF = hwBot.get(Servo.class, "ringF");
         ringF.setDirection(Servo.Direction.FORWARD);
+
+
+        shoulderJ = hwBot.get(Servo.class, "shoulderJ");
+        shoulderJ.setDirection(Servo.Direction.FORWARD);
+
+        elbowJ = hwBot.get(Servo.class, "elbowJ");
+        elbowJ.setDirection(Servo.Direction.FORWARD);
 
     }
 
@@ -64,6 +86,36 @@ public class Arm_Bot {
         middleF.setPosition(1);
         ringF.setPosition(1);
         pinkyF.setPosition(1);
+
+    }
+
+    public void thumbsUp() {
+        thumbF.setPosition(1);
+        indexF.setPosition(0);
+        middleF.setPosition(0);
+        ringF.setPosition(0);
+        pinkyF.setPosition(0);
+
+    }
+
+    public void solute() {
+        thumbF.setPosition(0);
+        indexF.setPosition(0);
+        middleF.setPosition(1);
+        ringF.setPosition(0);
+        pinkyF.setPosition(0);
+
+    }
+
+    public void moveElbowOpen() {
+        elbowJ.setPosition(elbowJ.getPosition()+elbowIncrements);
+
+
+    }
+
+    public void moveElbowClose() {
+        elbowJ.setPosition(elbowJ.getPosition()-elbowIncrements);
+
 
     }
 
