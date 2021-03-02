@@ -27,7 +27,7 @@ public class Arm_Bot {
     double shoulderDelta = Math.abs(shoulderClose-shoulderOpen);
     double shoulderIncrements = 10;
     double shoulderIncrementAmt = shoulderDelta / shoulderIncrements;
-    boolean shoulderMove = false;
+
 
     public Arm_Bot() {
     }
@@ -36,19 +36,19 @@ public class Arm_Bot {
 
         hwBot = hwMap;
 
-        pinkyF = hwBot.get(Servo.class, "pinkyF");
+        pinkyF = hwBot.get(Servo.class, "pinkyF");      // port 1
         pinkyF.setDirection(Servo.Direction.FORWARD);
 
-        middleF = hwBot.get(Servo.class, "middleF");
+        middleF = hwBot.get(Servo.class, "middleF");    // port 3
         middleF.setDirection(Servo.Direction.FORWARD);
 
-        indexF = hwBot.get(Servo.class, "indexF");
-        indexF.setDirection(Servo.Direction.FORWARD);
+        indexF = hwBot.get(Servo.class, "indexF");      // port 4
+        indexF.setDirection(Servo.Direction.FORWARD);                          // all extension hub
 
-        thumbF = hwBot.get(Servo.class, "thumbF");
+        thumbF = hwBot.get(Servo.class, "thumbF");      // port 5
         thumbF.setDirection(Servo.Direction.REVERSE);
 
-        ringF = hwBot.get(Servo.class, "ringF");
+        ringF = hwBot.get(Servo.class, "ringF");        // port 2
         ringF.setDirection(Servo.Direction.FORWARD);
 
 
