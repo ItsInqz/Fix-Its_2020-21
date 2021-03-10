@@ -23,7 +23,7 @@ public class ArmBotTeleOp extends OpMode {
 
         handControl();
         elbowControl();
-        
+        wristControl();
     }
 
     public void handControl() {
@@ -81,7 +81,10 @@ public class ArmBotTeleOp extends OpMode {
 
 }
 
-
+    public void wristControl() {
+            if (gamepad1.dpad_up);
+            Bot.closeWrist();
+    }
 
 
 }

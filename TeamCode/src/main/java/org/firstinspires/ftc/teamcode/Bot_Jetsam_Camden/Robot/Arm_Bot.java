@@ -14,6 +14,8 @@ public class Arm_Bot {
     public Servo shoulderJ = null;
     public Servo elbowJ = null;
 
+    public Servo wrist = null;
+
     public HardwareMap hwBot = null;
 
     public double elbowOpen = 1.0;
@@ -58,9 +60,14 @@ public class Arm_Bot {
         elbowJ = hwBot.get(Servo.class, "elbowJ");
         elbowJ.setDirection(Servo.Direction.FORWARD);
 
+        wrist = hwBot.get(Servo.class, "wrist");
+        wrist.setDirection(Servo.Direction.FORWARD);
+
     }
 
-
+    public void closeWrist() {
+        wrist.setPosition(0);
+    }
 
     public void point() {
         thumbF.setPosition(0);
