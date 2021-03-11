@@ -9,8 +9,8 @@ import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.Robot.Arm_Bot;
 
 public class ArmBotTeleOp extends OpMode {
 
-    boolean elbowMove = false;
-    boolean shoulderMove = false;
+  //  boolean elbowMove = false;
+  //  boolean shoulderMove = false;
 
     public Arm_Bot Bot = new Arm_Bot();
 
@@ -22,7 +22,7 @@ public class ArmBotTeleOp extends OpMode {
     public void loop() {
 
         handControl();
-        elbowControl();
+        ArmControl();
         wristControl();
     }
 
@@ -51,9 +51,18 @@ public class ArmBotTeleOp extends OpMode {
     }
 
 
-    public void elbowControl() {
+    public void ArmControl() {
+        if (gamepad1.dpad_right) {
+            Bot.raiseArm();
+        }
+
+        else if (gamepad1.dpad_left) {
+            Bot.flatArm();
+        }
 
 
+
+    /*
         if (gamepad1.dpad_up == true && elbowMove == false) {
             elbowMove = true;
         }
@@ -78,7 +87,7 @@ public class ArmBotTeleOp extends OpMode {
         if (Bot.elbowJ.getPosition() >= Bot.elbowOpen) {
             elbowMove = false;
         }
-
+*/
 }
 
     public void wristControl() {
