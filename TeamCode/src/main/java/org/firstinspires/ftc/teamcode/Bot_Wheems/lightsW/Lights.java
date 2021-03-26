@@ -1,9 +1,9 @@
 package org.firstinspires.ftc.teamcode.Bot_Wheems.lightsW;
 
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
-import org.firstinspires.ftc.teamcode.Bot_Wheems.launcherw.launcher;
+import org.firstinspires.ftc.teamcode.Bot_Wheems.launcherw.laucher;
 
-public class Lights extends launcher{
+public class Lights extends laucher{
 
     public RevBlinkinLedDriver ledLightsW;
     public RevBlinkinLedDriver.BlinkinPattern ledPatternW;
