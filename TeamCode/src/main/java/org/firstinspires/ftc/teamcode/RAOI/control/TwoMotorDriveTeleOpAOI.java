@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
         public Robot Bot = new Robot();
 
         double speedMultiply = 1;
-        double launcherPower = 5;
+
 
         public void init() {
 
@@ -58,5 +58,11 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
 
                 Bot.stopMotors();
             }
+        }
+        public void elevator() {
+
+
+
+
         }
 }
