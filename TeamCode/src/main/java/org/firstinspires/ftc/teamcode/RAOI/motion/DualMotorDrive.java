@@ -3,11 +3,12 @@ package org.firstinspires.ftc.teamcode.RAOI.motion;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class DualMotorDrive {
+public class DualMotorDrive  {
         //values//
 
         public DcMotor BackLeftMotor;
         public DcMotor BackRightMotor;
+        public DcMotor EleMotor;
 
         //linear op//
 
@@ -52,6 +53,16 @@ public class DualMotorDrive {
 
             BackLeftMotor.setPower(-ABSpower);
             BackRightMotor.setPower(-ABSpower);
+
+        }
+        public void up () {
+
+            EleMotor.setPower(1);
+
+         }
+        public void down (){
+
+            EleMotor.setPower(1);
 
         }
 

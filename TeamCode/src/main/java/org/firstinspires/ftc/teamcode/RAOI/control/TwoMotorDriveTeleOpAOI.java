@@ -60,9 +60,15 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
             }
         }
         public void elevator() {
+            if (gamepad1.y) {
 
+                Bot.down();
 
+            } else if (gamepad1.a) {
 
+                Bot.down();
+
+            }
 
         }
 }
