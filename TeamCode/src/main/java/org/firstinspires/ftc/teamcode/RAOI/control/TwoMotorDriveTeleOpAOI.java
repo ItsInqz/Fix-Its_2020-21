@@ -22,6 +22,7 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
         public void loop() {
             speed();
             drive();
+            elevator();
         }
 
         public void speed()  {
@@ -60,14 +61,17 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
             }
         }
         public void elevator() {
-            if (gamepad1.y) {
+            if (gamepad1.dpad_up) {
 
-                Bot.down();
+                Bot.up(0.35);
 
-            } else if (gamepad1.a) {
+            } else if (gamepad1.dpad_down) {
 
-                Bot.down();
+                Bot.down(0.35);
 
+            }
+            else {
+                Bot.StopEle();
             }
 
         }

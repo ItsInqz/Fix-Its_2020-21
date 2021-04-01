@@ -37,5 +37,6 @@ import org.firstinspires.ftc.teamcode.RAOI.motion.DualMotorDrive;;
             //Define brake
             BackLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             BackRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            EleMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
     }
