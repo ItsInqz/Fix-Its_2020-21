@@ -24,53 +24,29 @@ public class Auto extends LinearOpMode {
         Bot.initRAOIbot(hardwareMap);
         telemetry.addLine("<WAITING FOR START>");
         telemetry.update();
-        waitForStart();
+        //waitForStart();
         while (modechange==0) {
             if (gamepad1.right_bumper) {
                 mode += 1;
 
                 if (mode > 3) {
                 mode = 0;
-            }} else if (gamepad1.left_bumper) {
+            }}
+            else if (gamepad1.left_bumper) {
                 mode -= 1;
 
                 if (mode < 0) {
                     mode = 3;
                 }}
-            if (gamepad1.start) {
+            if (gamepad1.a) {
                 modechange = 1;
             }
+            telemetry.addLine("mode is"+mode);
+            telemetry.update();
         }
         if (mode == 1) {
-            while (opModeIsActive() && run.seconds() < 4) {
-                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
-                Bot.driveForward(foot);
-            }
             run.reset();
-            while (opModeIsActive() && run.seconds() < 1) {
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-                Bot.spinLeft(turn);
-            }
-            while (opModeIsActive() && run.seconds() < 2) {
-                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
-                Bot.driveForward(foot);
-            }}
-        else if (mode == 2) {
-            while (opModeIsActive() && run.seconds() < 2) {
-                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
-                Bot.driveForward(foot);
-            }
-            run.reset();
-            while (opModeIsActive() && run.seconds() < 1) {
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-                Bot.spinLeft(turn);
-            }
-            while (opModeIsActive() && run.seconds() < 2) {
-                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
-                Bot.driveForward(foot);
-            }}
-        else if (mode == 3) {
-            while (opModeIsActive() && run.seconds() < 2) {
+            while (opModeIsActive() && run.seconds() < 3) {
                 telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
                 Bot.driveForward(foot);
             }
@@ -79,15 +55,51 @@ public class Auto extends LinearOpMode {
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
                 Bot.spinright(turn);
             }
-            while (opModeIsActive() && run.seconds() < 2) {
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1.25) {
                 telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
                 Bot.driveForward(foot);
             }}
+        else if (mode == 2) {
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1.5) {
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
+                Bot.driveForward(foot);
+            }
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1) {
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
+                Bot.spinLeft(turn);
+            }
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1.25) {
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
+                Bot.driveForward(foot);
+            }}
+        else if (mode == 3) {
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1.5) {
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
+                Bot.driveForward(foot);
+            }
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1) {
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
+                Bot.spinright(turn);
+            }
+            run.reset();
+            while (opModeIsActive() && run.seconds() < 1.25) {
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
+                Bot.driveForward(foot);
+            }}
+        sleep(9000);
         requestOpModeStop();
 
         idle();
 
     }
+
+
 
 
 }
