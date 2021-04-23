@@ -9,7 +9,6 @@ import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
 
 
 @Autonomous(name= "RAOI auto")
-@Disabled
 public class Auto extends LinearOpMode {
 
     Robot Bot = new Robot();
