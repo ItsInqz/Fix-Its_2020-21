@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.RAOI.motion;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class DualMotorDrive {
     //values//
@@ -11,13 +12,15 @@ public class DualMotorDrive {
     public DcMotor EleMotor;
 
     //linear op//
-
     public LinearOpMode LinearOp = null;
 
     public void setLinearOp(LinearOpMode linearOp) {
         this.LinearOp = linearOp;
     }
 
+    //elapse time//
+    public ElapsedTime time = new ElapsedTime();
+    public double timewait = 2.0;
     //commands//
     //turn//
     public void stopMotors() {
