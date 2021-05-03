@@ -29,13 +29,13 @@ public class Auto extends LinearOpMode {
         while (modechange == 0) {
             if (gamepad1.right_bumper) {
                 mode += 1;
-                sleep(100);
+                sleep(500);
                 if (mode > 3) {
                     mode = 0;
                 }
             } else if (gamepad1.left_bumper) {
                 mode -= 1;
-                sleep(100);
+                sleep(500);
                 if (mode < 0) {
                     mode = 3;
                 }
