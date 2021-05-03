@@ -57,20 +57,17 @@ public class Robot extends TwoMotorDriveWheems {
         ledLightsW.setPattern(ledPatternW);
 
         //launcher
-        dropper = Wbot.get(Servo.class, "drop_servo");
-        dropper.setDirection(Servo.Direction.FORWARD);
 
-        launcher1 = Wbot.dcMotor.get("launch_motor_1");
-        launcher2 = Wbot.dcMotor.get("launch_motor_2");
 
-        launcher1.setDirection(DcMotor.Direction.FORWARD);
-        launcher2.setDirection(DcMotor.Direction.FORWARD);
+        //armmotor= Wbot.dcMotor.get("arm_motor");
+
+        //armmotor.setDirection(DcMotor.Direction.FORWARD);
 
         setMotorRunModes(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMotorRunModes(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        launcher1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        launcher2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //armmotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
 
     }
     public void setLedPattern (RevBlinkinLedDriver.BlinkinPattern patternName) {

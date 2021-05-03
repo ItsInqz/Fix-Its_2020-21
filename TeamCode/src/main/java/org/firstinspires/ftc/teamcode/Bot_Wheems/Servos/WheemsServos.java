@@ -18,8 +18,8 @@ public class WheemsServos extends Lights {
     //methods or controls
         // main
     public void armStandard() {//throws InterruptedException{
-        mainServo.setPosition(0.35);
-        secondaryServo.setPosition(1);
+        mainServo.setPosition(0.15);
+        secondaryServo.setPosition(1.4);
         //linearOp.sleep(500);
         //mainServo.setPosition(.55);
         //secondaryServo.setPosition(0.9);
