@@ -70,6 +70,10 @@ public class Arm_Bot {
         wristJ.setPosition(0);
     }
 
+    public void openWrist() {
+        wristJ.setPosition(1);
+    }
+
     public void point() {
         thumbF.setPosition(0);
         indexF.setPosition(1);
@@ -115,15 +119,25 @@ public class Arm_Bot {
 
     }
 
-    public void flatArm() {
-        elbowJ.setPosition(1);
-        shoulderJ.setPosition(1);
+    public void flatElbow() {
+        elbowJ.setPosition(0.1);
     }
 
-    public void raiseArm() {
-        elbowJ.setPosition(0);
-        shoulderJ.setPosition(0);
+    public void raiseElbow() {
+        elbowJ.setPosition(0.25);
     }
+
+
+
+    public void raiseShoulder() {
+        shoulderJ.setPosition(0.22);
+    }
+
+
+    public void flatShoulder() {
+        shoulderJ.setPosition(0.12);
+    }
+
 
    /* public void moveElbowOpen() {
         elbowJ.setPosition(elbowJ.getPosition()+elbowIncrements);

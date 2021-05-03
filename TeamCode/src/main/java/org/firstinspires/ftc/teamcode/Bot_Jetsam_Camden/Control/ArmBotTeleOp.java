@@ -9,8 +9,8 @@ import org.firstinspires.ftc.teamcode.Bot_Jetsam_Camden.Robot.Arm_Bot;
 
 public class ArmBotTeleOp extends OpMode {
 
-  //  boolean elbowMove = false;
-  //  boolean shoulderMove = false;
+    //  boolean elbowMove = false;
+    //  boolean shoulderMove = false;
 
     public Arm_Bot Bot = new Arm_Bot();
 
@@ -29,21 +29,13 @@ public class ArmBotTeleOp extends OpMode {
     public void handControl() {
         if (gamepad1.a) {
             Bot.point();
-        }
-
-        else if (gamepad1.b) {
+        } else if (gamepad1.b) {
             Bot.openHand();
-        }
-
-        else if (gamepad1.left_bumper) {
+        } else if (gamepad1.left_bumper) {
             Bot.solute();
-        }
-
-        else if (gamepad1.x) {
+        } else if (gamepad1.x) {
             Bot.thumbsUp();
-        }
-
-        else {
+        } else {
             Bot.closeHand();
         }
 
@@ -53,13 +45,14 @@ public class ArmBotTeleOp extends OpMode {
 
     public void ArmControl() {
         if (gamepad1.dpad_right) {
-            Bot.raiseArm();
+            Bot.raiseElbow();
+        } else if (gamepad1.dpad_left) {
+            Bot.flatElbow();
+        } else if (gamepad1.dpad_up) {
+            Bot.raiseShoulder();
+        } else if (gamepad1.dpad_down) {
+            Bot.flatShoulder();
         }
-
-        else if (gamepad1.dpad_left) {
-            Bot.flatArm();
-        }
-
 
 
     /*
@@ -88,12 +81,19 @@ public class ArmBotTeleOp extends OpMode {
             elbowMove = false;
         }
 */
-}
-
-    public void wristControl() {
-            if (gamepad1.dpad_up);
-            Bot.closeWrist();
     }
 
+    public void wristControl() {
+        if (gamepad1.left_stick_button)
+        {
+            Bot.openWrist();
+        }
+        else if (gamepad1.right_stick_button){
+
+            Bot.closeWrist();
+
+        }
+
+    }
 
 }
