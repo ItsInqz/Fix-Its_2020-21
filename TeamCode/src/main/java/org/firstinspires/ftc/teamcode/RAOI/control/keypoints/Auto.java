@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.RAOI.control;
+package org.firstinspires.ftc.teamcode.RAOI.control.keypoints;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
 
 
-@Autonomous(name= "RAOI auto")
+@Autonomous(name= "RAOI auto keypoints")
 public class Auto extends LinearOpMode {
 
     Robot Bot = new Robot();
