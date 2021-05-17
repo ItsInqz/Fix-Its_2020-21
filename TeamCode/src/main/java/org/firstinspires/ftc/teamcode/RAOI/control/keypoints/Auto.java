@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.RAOI.control;
+package org.firstinspires.ftc.teamcode.RAOI.control.keypoints;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.RAOI.Robot.Robot;
 
 
-@Autonomous(name= "RAOI auto")
+@Autonomous(name= "RAOI auto keypoints")
 public class Auto extends LinearOpMode {
 
     Robot Bot = new Robot();
@@ -29,13 +29,13 @@ public class Auto extends LinearOpMode {
         while (modechange == 0) {
             if (gamepad1.right_bumper) {
                 mode += 1;
-                sleep(100);
+                sleep(500);
                 if (mode > 3) {
                     mode = 0;
                 }
             } else if (gamepad1.left_bumper) {
                 mode -= 1;
-                sleep(100);
+                sleep(500);
                 if (mode < 0) {
                     mode = 3;
                 }
@@ -95,11 +95,15 @@ public class Auto extends LinearOpMode {
                 Bot.driveForward(foot);
             }
         }
+        Bot.stopMotors();
+        while (opModeIsActive() && run.seconds() < 2) {}
         run.reset();
-        while (opModeIsActive() && run.seconds() < 2) {
+        while (opModeIsActive() && run.seconds() < 1) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-            Bot.spinLeft(turn);
+            Bot.spinLeft(1.5*turn);
         }
+        run.reset();
+        Bot.stopMotors();
         if (mode == 1) {
             run.reset();
             while (opModeIsActive() && run.seconds() < 6 * timefoot) {
@@ -109,10 +113,10 @@ public class Auto extends LinearOpMode {
             run.reset();
             while (opModeIsActive() && run.seconds() < 1) {
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-                Bot.spinright(turn);
+                Bot.spinLeft(1.05*turn);
             }
             run.reset();
-            while (opModeIsActive() && run.seconds() < 24 * timefoot) {
+            while (opModeIsActive() && run.seconds() < 23 * timefoot) {
                 telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
                 Bot.driveForward(foot);
             }
@@ -124,10 +128,10 @@ public class Auto extends LinearOpMode {
             run.reset();
             while (opModeIsActive() && run.seconds() < 1) {
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-                Bot.spinright(turn);
+                Bot.spinLeft(turn);
             }
             run.reset();
-            while (opModeIsActive() && run.seconds() < 12 * timefoot) {
+            while (opModeIsActive() && run.seconds() < 11 * timefoot) {
                 telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
                 Bot.driveForward(foot);
             }
@@ -142,19 +146,12 @@ public class Auto extends LinearOpMode {
                 Bot.spinright(turn);
             }
             run.reset();
-            while (opModeIsActive() && run.seconds() < 14 * timefoot) {
+            while (opModeIsActive() && run.seconds() < 13 * timefoot) {
                 telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", run.seconds());
                 Bot.driveForward(foot);
             }
 
         }
-        run.reset();
-        while (opModeIsActive() && run.seconds() < 10) {
-        }
-        run.reset();
-        while (opModeIsActive() && run.seconds() < 2) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", run.seconds());
-            Bot.spinLeft(turn);
 
             Bot.stopMotors();
             requestOpModeStop();
@@ -164,4 +161,4 @@ public class Auto extends LinearOpMode {
         }
 
 
-    }}
+    }
