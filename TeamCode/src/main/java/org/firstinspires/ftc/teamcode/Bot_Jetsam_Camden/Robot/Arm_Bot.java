@@ -18,7 +18,7 @@ public class Arm_Bot {
 
     public HardwareMap hwBot = null;
 
-    /*
+
     public double elbowOpen = 1.0;
     public double elbowClose = 0;
     double elbowDelta = Math.abs(elbowClose-elbowOpen);
@@ -30,7 +30,7 @@ public class Arm_Bot {
     double shoulderDelta = Math.abs(shoulderClose-shoulderOpen);
     double shoulderIncrements = 10;
     double shoulderIncrementAmt = shoulderDelta / shoulderIncrements;
-    */
+
 
     public Arm_Bot() {
     }
@@ -55,14 +55,14 @@ public class Arm_Bot {
         ringF.setDirection(Servo.Direction.FORWARD);
 
 
-       // shoulderJ = hwBot.get(Servo.class, "shoulderJ");    //port 1
-    //    shoulderJ.setDirection(Servo.Direction.FORWARD);
+        shoulderJ = hwBot.get(Servo.class, "shoulderJ");          //port 1
+        shoulderJ.setDirection(Servo.Direction.FORWARD);
 
-       // elbowJ = hwBot.get(Servo.class, "elbowJ");  //port 2        control hub
-    //    elbowJ.setDirection(Servo.Direction.FORWARD);
+        elbowJ = hwBot.get(Servo.class, "elbowJ");                //port 2 control hub
+        elbowJ.setDirection(Servo.Direction.FORWARD);
 
-    //    wristJ = hwBot.get(Servo.class, "wristJ");  //port 3
-        //wristJ.setDirection(Servo.Direction.FORWARD);
+        wristJ = hwBot.get(Servo.class, "wristJ");                //port 3
+        wristJ.setDirection(Servo.Direction.FORWARD);
 
     }
 
@@ -139,8 +139,8 @@ public class Arm_Bot {
     }
 
 
-   /* public void moveElbowOpen() {
-        elbowJ.setPosition(elbowJ.getPosition()+elbowIncremvents);
+    public void moveElbowOpen() {
+        elbowJ.setPosition(elbowJ.getPosition()+elbowIncrements);
 
 
     }
@@ -149,6 +149,6 @@ public class Arm_Bot {
         elbowJ.setPosition(elbowJ.getPosition()-elbowIncrements);
 
 
-    }   */
+    }
 
 }
