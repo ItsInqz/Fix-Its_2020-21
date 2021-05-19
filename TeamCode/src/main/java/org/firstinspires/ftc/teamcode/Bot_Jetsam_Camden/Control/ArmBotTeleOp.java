@@ -15,22 +15,29 @@ public class ArmBotTeleOp extends OpMode {
     public Arm_Bot Bot = new Arm_Bot();
 
     public void init() {
+
         Bot.initArmBot(hardwareMap);
+        Bot.elbowCurrPos = Bot.elbowJ.getPosition();
+        Bot.shoulderCurrPos = Bot.shoulderJ.getPosition();
 
     }
 
     public void loop() {
 
         handControl();
-        ArmControl();
+       // armControl();
         wristControl();
+        elbowControl();
     }
 
     public void handControl() {
+
         if (gamepad1.a) {
             Bot.point();
         } else if (gamepad1.b) {
             Bot.openHand();
+        } else if (gamepad1.y) {
+            Bot.peace();
         } else if (gamepad1.left_bumper) {
             Bot.solute();
         } else if (gamepad1.x) {
@@ -38,12 +45,10 @@ public class ArmBotTeleOp extends OpMode {
         } else {
             Bot.closeHand();
         }
-
-
     }
 
 
-    public void ArmControl() {
+    public void armControl() {
         if (gamepad1.dpad_right) {
             Bot.raiseElbow();
         } else if (gamepad1.dpad_left) {
@@ -53,42 +58,34 @@ public class ArmBotTeleOp extends OpMode {
         } else if (gamepad1.dpad_down) {
             Bot.flatShoulder();
         }
-
-
-    /*
-        if (gamepad1.dpad_up == true && elbowMove == false) {
-            elbowMove = true;
-        }
-
-        if (elbowMove = true) {
-            Bot.moveElbowOpen();
-        }
-        if (Bot.elbowJ.getPosition() >= Bot.elbowOpen) {
-            elbowMove = false;
-        }
-
-        if (gamepad1.dpad_down == true && elbowMove == false) {
-            elbowMove = true;
-
-    }   //elbow port 1  shoulder port 2 (control hub)
-
-
-        if (elbowMove = true) {
-            Bot.moveElbowClose();
-        }
-
-        if (Bot.elbowJ.getPosition() >= Bot.elbowOpen) {
-            elbowMove = false;
-        }
-*/
     }
 
-    public void wristControl() {
-        if (gamepad1.left_stick_button)
+
+    public void elbowControl() {
+
+        if (gamepad1.dpad_up  && Bot.elbowCurrPos < Bot.elbowMaxPos)
         {
+            Bot.elbowCurrPos = Bot.elbowCurrPos + Bot.elbowIncrements;
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+
+        }
+
+        if (gamepad1.dpad_down  && Bot.elbowCurrPos > Bot.elbowMinPOs)
+        {
+            Bot.elbowCurrPos = Bot.elbowCurrPos - Bot.elbowIncrements;
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        }
+
+        Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+    }
+
+
+    public void wristControl() {
+        if (gamepad1.left_trigger > 0.1) {
+
             Bot.openWrist();
         }
-        else if (gamepad1.right_stick_button){
+        else {
 
             Bot.closeWrist();
 

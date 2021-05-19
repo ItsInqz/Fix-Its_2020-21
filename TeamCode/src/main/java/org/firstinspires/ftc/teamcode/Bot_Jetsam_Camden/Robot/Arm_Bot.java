@@ -13,23 +13,20 @@ public class Arm_Bot {
 
     public Servo shoulderJ = null;
     public Servo elbowJ = null;
-
     public Servo wristJ = null;
 
     public HardwareMap hwBot = null;
 
+    public double elbowMaxPos = 1.0;
+    public double elbowMinPOs = 0;
+    public double elbowCurrPos = 0;
+    public double elbowIncrements = 0.1;
 
-    public double elbowOpen = 1.0;
-    public double elbowClose = 0;
-    double elbowDelta = Math.abs(elbowClose-elbowOpen);
-    double elbowIncrements = 10;
-    double elbowIncrementAmt = elbowDelta / elbowIncrements;
+    public double shoulderMaxPos = 1.0;
+    public double shoulderMinPos = 0;
+    public double shoulderCurrPos = 0;
+    public double shoulderIncrements = 0.1;
 
-    double shoulderOpen = 1.0;
-    double shoulderClose = 0;
-    double shoulderDelta = Math.abs(shoulderClose-shoulderOpen);
-    double shoulderIncrements = 10;
-    double shoulderIncrementAmt = shoulderDelta / shoulderIncrements;
 
 
     public Arm_Bot() {
@@ -83,6 +80,15 @@ public class Arm_Bot {
 
     }
 
+    public void peace() {
+        thumbF.setPosition(0);
+        indexF.setPosition(1);
+        middleF.setPosition(1);
+        ringF.setPosition(0);
+        pinkyF.setPosition(0);
+
+    }
+
     public void closeHand() {
         thumbF.setPosition(0);
         indexF.setPosition(0);
@@ -127,12 +133,9 @@ public class Arm_Bot {
         elbowJ.setPosition(-0.25);
     }
 
-
-
     public void raiseShoulder() {
         shoulderJ.setPosition(-0.22);
     }
-
 
     public void flatShoulder() {
         shoulderJ.setPosition(-0.12);
