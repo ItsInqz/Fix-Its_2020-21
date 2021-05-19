@@ -17,8 +17,8 @@ public class ArmBotTeleOp extends OpMode {
     public void init() {
 
         Bot.initArmBot(hardwareMap);
-        Bot.elbowCurrPos = Bot.elbowJ.getPosition();
-        Bot.shoulderCurrPos = Bot.shoulderJ.getPosition();
+        Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        //Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
 
     }
 
@@ -27,9 +27,8 @@ public class ArmBotTeleOp extends OpMode {
         handControl();
         wristControl();
         elbowControl();
-        shoulderControl();
         telemetry.addData("Elbow Current Pos", Bot.elbowCurrPos);
-        telemetry.addData("Shoulder Current Pos", Bot.shoulderCurrPos);
+
     }
 
     public void handControl() {

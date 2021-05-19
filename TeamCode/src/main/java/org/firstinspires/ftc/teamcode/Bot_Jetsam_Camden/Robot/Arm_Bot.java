@@ -18,13 +18,13 @@ public class Arm_Bot {
     public HardwareMap hwBot = null;
 
     public double elbowMaxPos = 0.5;
-    public double elbowMinPOs = 0.25;
-    public double elbowCurrPos = 0;
+    public double elbowMinPOs = 0.18;
+    public double elbowCurrPos = 0.18;
     public double elbowIncrements = 0.0005;
 
     public double shoulderMaxPos = 0.5;
     public double shoulderMinPos = 0.25;
-    public double shoulderCurrPos = 0;
+    public double shoulderCurrPos = .5;
     public double shoulderIncrements = 0.0005;
 
 
