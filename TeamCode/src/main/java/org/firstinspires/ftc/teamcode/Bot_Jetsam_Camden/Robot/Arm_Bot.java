@@ -17,15 +17,15 @@ public class Arm_Bot {
 
     public HardwareMap hwBot = null;
 
-    public double elbowMaxPos = 1.0;
-    public double elbowMinPOs = 0;
+    public double elbowMaxPos = 0.5;
+    public double elbowMinPOs = 0.25;
     public double elbowCurrPos = 0;
-    public double elbowIncrements = 0.1;
+    public double elbowIncrements = 0.0005;
 
-    public double shoulderMaxPos = 1.0;
-    public double shoulderMinPos = 0;
+    public double shoulderMaxPos = 0.5;
+    public double shoulderMinPos = 0.25;
     public double shoulderCurrPos = 0;
-    public double shoulderIncrements = 0.1;
+    public double shoulderIncrements = 0.0005;
 
 
 
@@ -64,11 +64,18 @@ public class Arm_Bot {
     }
 
     public void closeWrist() {
+
         wristJ.setPosition(0);
     }
 
     public void openWrist() {
+
         wristJ.setPosition(1);
+    }
+
+    public void halfWrist() {
+
+        wristJ.setPosition(.5);
     }
 
     public void point() {
@@ -125,33 +132,5 @@ public class Arm_Bot {
 
     }
 
-    public void flatElbow() {
-        elbowJ.setPosition(-0.1);
-    }
-
-    public void raiseElbow() {
-        elbowJ.setPosition(-0.25);
-    }
-
-    public void raiseShoulder() {
-        shoulderJ.setPosition(-0.22);
-    }
-
-    public void flatShoulder() {
-        shoulderJ.setPosition(-0.12);
-    }
-
-
-    public void moveElbowOpen() {
-        elbowJ.setPosition(elbowJ.getPosition()+elbowIncrements);
-
-
-    }
-
-    public void moveElbowClose() {
-        elbowJ.setPosition(elbowJ.getPosition()-elbowIncrements);
-
-
-    }
 
 }

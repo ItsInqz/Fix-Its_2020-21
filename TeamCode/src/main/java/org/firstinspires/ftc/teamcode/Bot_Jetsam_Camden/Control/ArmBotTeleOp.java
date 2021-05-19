@@ -25,9 +25,11 @@ public class ArmBotTeleOp extends OpMode {
     public void loop() {
 
         handControl();
-       // armControl();
         wristControl();
         elbowControl();
+        shoulderControl();
+        telemetry.addData("Elbow Current Pos", Bot.elbowCurrPos);
+        telemetry.addData("Shoulder Current Pos", Bot.shoulderCurrPos);
     }
 
     public void handControl() {
@@ -48,42 +50,57 @@ public class ArmBotTeleOp extends OpMode {
     }
 
 
-    public void armControl() {
-        if (gamepad1.dpad_right) {
-            Bot.raiseElbow();
-        } else if (gamepad1.dpad_left) {
-            Bot.flatElbow();
-        } else if (gamepad1.dpad_up) {
-            Bot.raiseShoulder();
-        } else if (gamepad1.dpad_down) {
-            Bot.flatShoulder();
-        }
-    }
-
 
     public void elbowControl() {
 
         if (gamepad1.dpad_up  && Bot.elbowCurrPos < Bot.elbowMaxPos)
         {
-            Bot.elbowCurrPos = Bot.elbowCurrPos + Bot.elbowIncrements;
+            Bot.elbowCurrPos += Bot.elbowIncrements;
             Bot.elbowJ.setPosition(Bot.elbowCurrPos);
-
+        }
+        else {
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
         }
 
         if (gamepad1.dpad_down  && Bot.elbowCurrPos > Bot.elbowMinPOs)
         {
-            Bot.elbowCurrPos = Bot.elbowCurrPos - Bot.elbowIncrements;
+            Bot.elbowCurrPos -= Bot.elbowIncrements;
             Bot.elbowJ.setPosition(Bot.elbowCurrPos);
         }
-
-        Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        else {
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        }
     }
 
+    public void shoulderControl() {
+
+        if (gamepad1.dpad_left  && Bot.shoulderCurrPos < Bot.shoulderMaxPos)
+        {
+            Bot.shoulderCurrPos += Bot.shoulderIncrements;
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
+        }
+        else {
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
+        }
+
+        if (gamepad1.dpad_right  && Bot.shoulderCurrPos > Bot.shoulderMinPos)
+        {
+            Bot.shoulderCurrPos -= Bot.shoulderIncrements;
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
+        }
+        else {
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
+        }
+    }
 
     public void wristControl() {
         if (gamepad1.left_trigger > 0.1) {
 
             Bot.openWrist();
+        }
+        else if (gamepad1.right_trigger > 0.1) {
+
+            Bot.halfWrist();
         }
         else {
 
