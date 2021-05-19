@@ -31,7 +31,7 @@ public class Arm_Bot {
 
     public Arm_Bot() {
     }
-
+//
     public void initArmBot(HardwareMap hwMap) {
 
         hwBot = hwMap;
