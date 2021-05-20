@@ -15,22 +15,30 @@ public class ArmBotTeleOp extends OpMode {
     public Arm_Bot Bot = new Arm_Bot();
 
     public void init() {
+
         Bot.initArmBot(hardwareMap);
+        Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        //Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
 
     }
 
     public void loop() {
 
         handControl();
-        ArmControl();
         wristControl();
+        elbowControl();
+        telemetry.addData("Elbow Current Pos", Bot.elbowCurrPos);
+
     }
 
     public void handControl() {
+
         if (gamepad1.a) {
             Bot.point();
         } else if (gamepad1.b) {
             Bot.openHand();
+        } else if (gamepad1.y) {
+            Bot.peace();
         } else if (gamepad1.left_bumper) {
             Bot.solute();
         } else if (gamepad1.x) {
@@ -40,57 +48,62 @@ public class ArmBotTeleOp extends OpMode {
         } else {
             Bot.closeHand();
         }
-
-
     }
 
 
-    public void ArmControl() {
-        if (gamepad1.dpad_right) {
-            Bot.raiseElbow();
-        } else if (gamepad1.dpad_left) {
-            Bot.flatElbow();
-        } else if (gamepad1.dpad_up) {
-            Bot.raiseShoulder();
-        } else if (gamepad1.dpad_down) {
-            Bot.flatShoulder();
+
+    public void elbowControl() {
+
+        if (gamepad1.dpad_up  && Bot.elbowCurrPos < Bot.elbowMaxPos)
+        {
+            Bot.elbowCurrPos += Bot.elbowIncrements;
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        }
+        else {
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
         }
 
+        if (gamepad1.dpad_down  && Bot.elbowCurrPos > Bot.elbowMinPOs)
+        {
+            Bot.elbowCurrPos -= Bot.elbowIncrements;
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        }
+        else {
+            Bot.elbowJ.setPosition(Bot.elbowCurrPos);
+        }
+    }
 
-    /*
-        if (gamepad1.dpad_up == true && elbowMove == false) {
-            elbowMove = true;
+    public void shoulderControl() {
+
+        if (gamepad1.dpad_left  && Bot.shoulderCurrPos < Bot.shoulderMaxPos)
+        {
+            Bot.shoulderCurrPos += Bot.shoulderIncrements;
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
+        }
+        else {
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
         }
 
-        if (elbowMove = true) {
-            Bot.moveElbowOpen();
+        if (gamepad1.dpad_right  && Bot.shoulderCurrPos > Bot.shoulderMinPos)
+        {
+            Bot.shoulderCurrPos -= Bot.shoulderIncrements;
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
         }
-        if (Bot.elbowJ.getPosition() >= Bot.elbowOpen) {
-            elbowMove = false;
+        else {
+            Bot.shoulderJ.setPosition(Bot.shoulderCurrPos);
         }
-
-        if (gamepad1.dpad_down == true && elbowMove == false) {
-            elbowMove = true;
-
-    }   //elbow port 1  shoulder port 2 (control hub)
-
-
-        if (elbowMove = true) {
-            Bot.moveElbowClose();
-        }
-
-        if (Bot.elbowJ.getPosition() >= Bot.elbowOpen) {
-            elbowMove = false;
-        }
-*/
     }
 
     public void wristControl() {
-        if (gamepad1.left_stick_button)
-        {
+        if (gamepad1.left_trigger > 0.1) {
+
             Bot.openWrist();
         }
-        else if (gamepad1.right_stick_button){
+        else if (gamepad1.right_trigger > 0.1) {
+
+            Bot.halfWrist();
+        }
+        else {
 
             Bot.closeWrist();
 
