@@ -35,6 +35,8 @@ public class ArmBotTeleOp extends OpMode {
             Bot.solute();
         } else if (gamepad1.x) {
             Bot.thumbsUp();
+        } else if (gamepad1.right_stick_button) {
+            Bot.surferWave();
         } else {
             Bot.closeHand();
         }
