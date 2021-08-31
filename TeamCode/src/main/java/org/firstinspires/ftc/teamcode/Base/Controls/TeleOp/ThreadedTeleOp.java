@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.Base.Robot.LedThread;
 
 
 //@Disabled
-@TeleOp(name = "TeleOp - AckerBot - Threading")
+//@TeleOp(name = "TeleOp - AckerBot - Threading")
 
 public class ThreadedTeleOp extends OpMode {
 
