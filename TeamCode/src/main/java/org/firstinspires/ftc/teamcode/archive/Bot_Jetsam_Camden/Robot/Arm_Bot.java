@@ -132,5 +132,12 @@ public class Arm_Bot {
 
     }
 
+    public void surferWave() {
+        thumbF.setPosition(0);
+        indexF.setPosition(1);
+        middleF.setPosition(0);
+        ringF.setPosition(0);
+        pinkyF.setPosition(1);
+    }
 
 }
