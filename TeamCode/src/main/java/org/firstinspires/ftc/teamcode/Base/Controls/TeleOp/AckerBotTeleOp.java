@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Base.Robot.AckerBot;
 
 
 //@Disabled
-@TeleOp(name = "TeleOp - AckerBot")
+@TeleOp(name = "TeleOp:AckerBot", group="Acker")
 
 public class AckerBotTeleOp extends OpMode {
 

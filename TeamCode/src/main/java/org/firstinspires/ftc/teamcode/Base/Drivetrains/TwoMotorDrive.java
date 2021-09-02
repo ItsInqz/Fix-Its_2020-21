@@ -16,10 +16,9 @@ public class TwoMotorDrive {
         this.linearOp = linearOp;
     }
 
-    // These are motor variables from running with encoders (not power)
-   // public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
-   // public static final double TICKS_PER_ROTATION = 538;
-
+    // These are comomon motor variables from running with encoders (not power)
+    public final DcMotor.RunMode currentMotorRunMode = DcMotor.RunMode.RUN_WITHOUT_ENCODER;
+    public static final double TICKS_PER_ROTATION = 538;
 
     // Reusuable Method to Set the Motor Behavior or Run Modes from the Robot Class
     public void setMotorRunModes (DcMotor.RunMode mode) {
@@ -40,8 +39,8 @@ public class TwoMotorDrive {
     // Reusuable Method to Drive Forward
 
     public void driveForward (double power) {
-        double ABSpower = Math.abs(power);
 
+        double ABSpower = Math.abs(power);
         frontLeftMotor.setPower(ABSpower);
         frontRightMotor.setPower(ABSpower);
 ;
@@ -51,8 +50,8 @@ public class TwoMotorDrive {
     // Reusuable Method to Drive Backwards
 
     public void driveBackward (double power) {
-        double ABSpower = Math.abs(power);
 
+        double ABSpower = Math.abs(power);
         frontLeftMotor.setPower(-ABSpower);
         frontRightMotor.setPower(-ABSpower);
 
@@ -61,8 +60,8 @@ public class TwoMotorDrive {
     // Reusuable Method to Turn Left (aka Rotate)
 
     public void rotateLeft (double power) {
-        double ABSpower = Math.abs(power);
 
+        double ABSpower = Math.abs(power);
         frontLeftMotor.setPower(-ABSpower);
         frontRightMotor.setPower(ABSpower);
     }

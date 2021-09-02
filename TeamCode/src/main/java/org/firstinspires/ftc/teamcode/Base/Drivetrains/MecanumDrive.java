@@ -5,18 +5,25 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class MecanumDrive {
 
+    // Declare Variables for the Motors
     public DcMotor frontLeftMotor;
     public DcMotor frontRightMotor;
     public DcMotor rearLeftMotor;
     public DcMotor rearRightMotor;
 
+    // This is required as part of FIRST Tech Challenge SDK   Memorize
     public LinearOpMode LinearOp = null;    //memorize
 
+    // These are motor variables from running with encoders (not power)
     public static final double TICKS_PER_ROTATION = 386.3;  //386.3 is defined from the specs of the motor
+
+    // Default Constructors
 
     public MecanumDrive(){
 
     }
+
+    // Constructor with parameters.
 
     public MecanumDrive(DcMotor fl, DcMotor fr, DcMotor rl, DcMotor rr) {
 
@@ -40,13 +47,15 @@ public class MecanumDrive {
 
 
     }
-//** common class methods below here **
+
+    //** common class methods below here **
 
 
     public void setLinearOp(LinearOpMode LinearOp) {
         this.LinearOp = LinearOp;
     }
 
+    // Reusuable Method to Set the Motor Behavior or Run Modes from the Robot Class
     public void setMotorRunModes(DcMotor.RunMode mode) {
 
         frontLeftMotor.setMode(mode);
